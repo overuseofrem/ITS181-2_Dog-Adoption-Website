@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --font: Jost;
+    --bg-color: #DED0C4;
+    --container-bg-color: #FFFFFF;
+    --accent-color: #D77A61;
+    --btn-color: #FFFFFF;
+    --text-body-size: 18px; /* normal text <p> */
+    --nav-link-size: 20px; /* navigation links (sidenav/footer) */
+    --gen-link-size: 25px; /* big links (usually btns) */
+    --main-title-header: 40px; /* BIG headers for main content */
+    --header-size: 30px;
+    --header-link-weight: 900;
+    --border-radius: 30px;
+    --header-line-height: 30px;
+    --main-header-line-height: 38px;
+}
+
+html {
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
