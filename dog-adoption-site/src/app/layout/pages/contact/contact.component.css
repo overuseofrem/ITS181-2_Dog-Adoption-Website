@@ -1,0 +1,107 @@
+* {
+    font-family: var(--font);
+    /* border: lime solid 1px; */
+}
+
+.top-paws {
+    position: absolute;
+    top: 4rem;
+    left: 63rem;
+}
+
+.separator-paws {
+    display: flex;
+    justify-content: end;
+    margin-right: 14rem;
+    margin-block: 2rem;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--container-bg-color);
+    border-radius: var(--border-radius);
+    position: relative;
+    padding: 6rem 1rem 1rem 1rem;
+}
+
+.main-header {
+    background-color: var(--accent-color);
+    border-radius: var(--border-radius);
+    width: 80%;
+    position: absolute;
+    top: -4rem;
+    left: 4rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-title-img {
+    width: 100%;
+    position: absolute;
+    top: -9.9rem;
+    left: -8rem;
+    transform: scale(0.75);
+}
+
+.main-title {
+    color: var(--btn-color);
+    font-weight: var(--header-link-weight);
+    width: 14rem;
+    height: auto;
+    line-height: var(--main-header-line-height);
+    font-size: var(--main-title-header);
+    padding: 0 2rem 0rem 2rem;
+    text-align: end;
+}
+
+.header-text {
+    text-align: center;
+    margin-block: 3rem 2rem;
+    font-weight: var(--header-link-weight);
+}
+
+.gen-text-body {
+    font-size: var(--text-body-size);
+    margin: 2rem 6rem 3rem 6rem;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--container-bg-color);
+    border-radius: var(--border-radius);
+    position: relative;
+    padding: 0rem 1rem 2rem 1rem;
+}
+
+.form-content {
+    width: 80%;
+}
+
+.btn {
+    background-color: var(--accent-color);
+    text-decoration: none;
+    color: var(--btn-color);
+    font-weight: var(--header-link-weight);
+    font-size: var(--gen-link-size);
+    position: absolute;
+    padding: 3px 17px 3px 17px;
+    border-radius: var(--border-radius);
+    right: 3rem;
+    bottom: -20px;
+    border: none;
+    cursor: pointer;
+}
+
+input, textarea {
+    border: 3px solid var(--accent-color);
+    border-radius: var(--border-radius);
+    padding: 10px;
+    width: 100%;
+    font-size: var(--text-body-size);
+    resize: none;
+}

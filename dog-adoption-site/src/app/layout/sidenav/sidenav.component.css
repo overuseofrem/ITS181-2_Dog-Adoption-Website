@@ -10,9 +10,8 @@
     align-items: center;
     width: 100%;
     height: 100%;
-    top: -9.5rem;
+    top: -4.5rem;
     left: -23.2rem;
-    z-index: 1000;
 }
 
 .sidenav {
@@ -60,7 +59,23 @@
     font-size: var(--nav-link-size);
     text-decoration: none;
     margin-block: 5px;
-    width: 100px;
+    width: 110px;
+    cursor: pointer;
+}
+
+.nav-link-item.active {
+    color: #FFFFFF;
+    background-color: var(--accent-color);
+    border-radius: var(--border-radius);
+    padding-inline: 1rem;
+}
+
+.nav-link-item:hover {
+    color: #FFFFFF;
+    background-color: var(--accent-color);
+    border-radius: var(--border-radius);
+    padding-inline: 1rem;
+    transition: 0.1s ease-out;
 }
 
 .btn {

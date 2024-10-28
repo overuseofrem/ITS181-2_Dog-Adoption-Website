@@ -3,11 +3,11 @@
     /* border: lime solid 1px; */
 }
 
-/* .above-space {
-    background-color: blue;
-    width: 40rem;
-    min-height: 10%;
-} */
+.separator-paws {
+    position: absolute;
+    top: 4rem;
+    left: 63rem;
+}
 
 .main-container {
     display: flex;
@@ -15,10 +15,8 @@
     justify-content: center;
     background-color: var(--container-bg-color);
     border-radius: var(--border-radius);
-    /* width: 40rem; */
     position: relative;
     padding: 10rem 1rem 1rem 1rem;
-    margin: 1rem 0;
 }
 
 .main-header {

@@ -19,7 +19,7 @@
 
 * {
     font-family: var(--font);
-    border: lime solid 1px;
+    /* border: lime solid 1px; */
 }
 
 .wrapper {
@@ -33,7 +33,7 @@
 .top-side {
     display: flex;
     justify-content: space-between;
-    margin-block: 10rem 5rem;
+    margin-top: 15rem;
 }
 
 .in-right-side {
@@ -51,7 +51,6 @@
 }
 
 .main-content {
-    background-color: var(--container-bg-color);
     border-radius: var(--border-radius);
     width: 40rem;
     display: flex;
@@ -70,5 +69,15 @@
 }
 
 .mid-paw {
-    margin-top: 10rem;
+    top: 26rem;
+    left: 45rem;
+    z-index: 1000;
+    position: fixed;
+}
+
+.bottom-paws {
+    display: flex;
+    justify-content: end;
+    margin-right: 14rem;
+    margin-block: 4rem;
 }
