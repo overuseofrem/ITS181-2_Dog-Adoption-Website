@@ -24,7 +24,6 @@
 
 .wrapper {
     width: 50vw;
-    margin-block: 10rem 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -34,7 +33,7 @@
 .top-side {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 5rem;
+    margin-block: 10rem 5rem;
 }
 
 .in-right-side {
@@ -44,10 +43,8 @@
 }
 
 .sidenav {
-    background-color: var(--container-bg-color);
-    border-radius: var(--border-radius);
     width: 13rem;
-    height: 20rem;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -57,7 +54,6 @@
     background-color: var(--container-bg-color);
     border-radius: var(--border-radius);
     width: 40rem;
-    height: 50rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -70,4 +66,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 2rem;
+}
+
+.mid-paw {
+    margin-top: 10rem;
 }
