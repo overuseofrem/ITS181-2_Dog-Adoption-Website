@@ -85,9 +85,18 @@
     font-weight: var(--header-link-weight);
     font-size: var(--gen-link-size);
     position: absolute;
-    padding: 3px 17px 3px 17px;
+    padding: 1px 15px 1px 15px;
     border-radius: var(--border-radius);
     left: 2.5rem;
     bottom: -20px;
     cursor: pointer;
+    transition: 0.1s ease-out;
+    border: 3px solid transparent;
+}
+
+.btn:hover {
+    background-color: #FFFFFF;
+    color: var(--accent-color);
+    transition: 0.1s ease-out;
+    border-color: var(--accent-color);
 }
