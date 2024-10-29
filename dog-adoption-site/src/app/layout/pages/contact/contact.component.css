@@ -64,7 +64,7 @@
 
 .gen-text-body {
     font-size: var(--text-body-size);
-    margin: 2rem 6rem 3rem 6rem;
+    margin: 2rem 4rem 2rem 4rem;
 }
 
 .form-container {
@@ -75,7 +75,7 @@
     background-color: var(--container-bg-color);
     border-radius: var(--border-radius);
     position: relative;
-    padding: 0rem 1rem 2rem 1rem;
+    padding: 0rem 3rem 3rem 1rem;
 }
 
 .form-content {
@@ -89,18 +89,28 @@
     font-weight: var(--header-link-weight);
     font-size: var(--gen-link-size);
     position: absolute;
-    padding: 3px 17px 3px 17px;
+    padding: 1px 15px 1px 15px;
     border-radius: var(--border-radius);
+    border: 3px solid;
     right: 3rem;
     bottom: -20px;
     border: none;
     cursor: pointer;
+    transition: 0.1s ease-out;
+    border: 3px solid transparent;
+}
+
+.btn:hover {
+    background-color: #FFFFFF;
+    color: var(--accent-color);
+    transition: 0.1s ease-out;
+    border-color: var(--accent-color);
 }
 
 input, textarea {
     border: 3px solid var(--accent-color);
     border-radius: var(--border-radius);
-    padding: 10px;
+    padding: 10px 10px 10px 10px;
     width: 100%;
     font-size: var(--text-body-size);
     resize: none;

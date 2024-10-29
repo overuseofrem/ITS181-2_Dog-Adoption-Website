@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
-import { ContactMessageFormComponent } from '../contact-message-form/contact-message-form.component';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [
-    ContactMessageFormComponent
-  ],
+  imports: [],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css'
 })
