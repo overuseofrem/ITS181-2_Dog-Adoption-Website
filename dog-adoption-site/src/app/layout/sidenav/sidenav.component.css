@@ -41,8 +41,12 @@
     text-align: center;
     line-height: var(--header-line-height);
     font-size: var(--header-size);
-    color: var(--accent-color);
     font-weight: var(--header-link-weight);
+}
+
+.site-title a {
+    text-decoration: none;
+    color: var(--accent-color);
 }
 
 .nav-links {
