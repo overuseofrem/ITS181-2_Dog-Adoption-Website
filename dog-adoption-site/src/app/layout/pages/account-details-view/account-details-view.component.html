@@ -1,0 +1,33 @@
+    <div class="main-wrapper">
+
+        <div class="separator-paws">
+            <img src="assets/dog pictures/multiple-paws.png" alt="" class="mult-paws">
+        </div>
+
+        <div class="main-container">
+
+            <div class="main-content">
+
+                <div class="main-header">
+                    <div class="head-img-container">
+                        <img src="assets/dog pictures/314f34.png" alt="" class="head-img">
+                    </div> 
+                </div>
+
+                <form action="#" method="POST">
+                    <input type="name" id="name" name="name" value="{{dummyName}}" disabled>
+                    <input type="email" id="email" name="email" value="{{dummyEmail}}" disabled>
+                    <input type="password" id="password" name="password" value="{{dummyPassword}}" disabled>
+                    <input type="tel" id="contact" name="contact" pattern="[0-9]{11}" value="{{dummyContact}}" disabled>
+                    <input type="text" id="address" name="address" value="{{dummyAddress}}" disabled>
+                    <button class="btn" [routerLink]="'/account-details-edit'">EDIT ACCOUNT</button>
+                </form>
+                
+                <button class="btn-other">DELETE ACCOUNT</button>
+
+            </div>
+
+
+        </div>
+
+    </div>

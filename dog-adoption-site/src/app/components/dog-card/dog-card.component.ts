@@ -8,8 +8,4 @@ import { Dog } from '../../model/dog';
   templateUrl: './dog-card.component.html',
   styleUrl: './dog-card.component.css'
 })
-export class DogCardComponent {
-
-  
-
-}
+export class DogCardComponent { }
