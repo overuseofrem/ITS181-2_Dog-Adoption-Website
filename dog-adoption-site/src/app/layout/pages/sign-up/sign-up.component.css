@@ -1,0 +1,106 @@
+* {
+    font-family: var(--font);
+    /* border: lime solid 1px; */
+}
+
+.separator-paws {
+    position: absolute;
+    top: 4rem;
+    left: 63rem;
+}
+
+.main-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* min-height: 100vh; */
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--container-bg-color);
+    border-radius: var(--border-radius);
+    width: 38rem;
+    position: relative;
+    padding: 18rem 1rem 1rem 1rem;
+}
+
+.main-header {
+    background-color: var(--accent-color);
+    border-radius: var(--border-radius);
+    width: 80%;
+    position: absolute;
+    top: -4rem;
+    left: 4rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.head-img-container {
+    width: 16rem;
+    height: 13rem;
+}
+
+.main-title-img {
+    width: 45%;
+    position: absolute;
+    top: -3.8rem;
+}
+
+.main-title {
+    color: var(--btn-color);
+    font-weight: var(--header-link-weight);
+    width: 14rem;
+    line-height: var(--main-header-line-height);
+    font-size: var(--main-title-header);
+    padding: 0rem 2rem 0rem 2rem;
+    display: flex;
+    flex-direction: row;
+}
+
+/* form styles */
+
+.btn {
+    background-color: var(--accent-color);
+    text-decoration: none;
+    color: var(--btn-color);
+    font-weight: var(--header-link-weight);
+    font-size: var(--gen-link-size);
+    position: absolute;
+    padding: 3px 17px 3px 17px;
+    border-radius: var(--border-radius);
+    right: 3rem;
+    bottom: -20px;
+    border: none;
+    cursor: pointer;
+    transition: 0.1s ease-out;
+    border: 3px solid transparent;
+}
+
+.btn:hover {
+    background-color: #FFFFFF;
+    color: var(--accent-color);
+    transition: 0.1s ease-out;
+    border-color: var(--accent-color);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+input, textarea {
+    border: 3px solid var(--accent-color);
+    border-radius: var(--border-radius);
+    padding: 10px;
+    width: 80%;
+    font-size: var(--text-body-size);
+    resize: none;
+    margin-bottom: 1.5rem;
+}
+
