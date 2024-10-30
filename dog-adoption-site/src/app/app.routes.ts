@@ -12,6 +12,8 @@ import { AccountDetailsEditComponent } from './layout/pages/account-details-edit
 import { AdminComponent } from './layout/pages/admin/admin.component';
 import { AdminDetailsViewComponent } from './layout/pages/admin-details-view/admin-details-view.component';
 import { AdminDetailsEditComponent } from './layout/pages/admin-details-edit/admin-details-edit.component';
+import { AdminAdoptionsComponent } from './layout/pages/admin-adoptions/admin-adoptions.component';
+import { AdminDogsComponent } from './layout/pages/admin-dogs/admin-dogs.component';
 
 export const routes: Routes = [
     { path: '', component: HomepageComponent, title: 'Homepage' },
@@ -26,5 +28,7 @@ export const routes: Routes = [
     { path: 'account-details-edit', component: AccountDetailsEditComponent},
     { path: 'admin', component: AdminComponent},
     { path: 'admin-details', component: AdminDetailsViewComponent},
-    { path: 'admin-details-edit', component: AdminDetailsEditComponent}
+    { path: 'admin-details-edit', component: AdminDetailsEditComponent},
+    { path: 'admin-adoptions', component:AdminAdoptionsComponent},
+    { path: 'admin-dogs', component:AdminDogsComponent}, 
 ];

@@ -8,19 +8,18 @@
 
         <div class="account-content">
 
-            <div class="account-header">
-                <h1 class="main-title">Welcome [Admin]</h1>
-            </div>
-            <div class="main-headerimgcontainer">
-                <!--.
-                Insert Image of account here!
-                PS. I tried to put an image here but it doesnt become circular so idk what exactly i need
-                to do for this...
-                -->
+            <div class="main-header">
+                <div class="main-title">
+                    <h1>Welcome,</h1>
+                    <h1>ADMIN!</h1>
+                </div>
+                <img src="assets/dog pictures/314f34.png" alt="">
             </div>
 
-            <button class="btn-changeaccount" type="submit">ACCOUNT DETAILS</button>
-            <p class="gen-text-body">SIGN OUT</p>
+            <div class="account-buttons">
+                <button class="btn-changeaccount" [routerLink]="'/admin-details'">ACCOUNT DETAILS</button>
+                <p class="gen-text-body" [routerLink]="'/'">SIGN OUT</p>    
+            </div>
 
         </div>
 
@@ -30,12 +29,15 @@
         <img src="assets/dog pictures/multiple-paws.png" alt="" class="mult-paws">
     </div>
 
-    <div class="main-container">
+    <div class="main-container-manage">
 
-        <div class="account-content">
+        <div class="account-content-manage">
 
-            <button class="btn-adminbtnmanager" type="submit">MANAGE DOGS</button>
-            <button class="btn-adminbtnmanager" type="submit">MANAGE ADOPTIONS</button>
+            <div class="account-buttons-manage">
+                <button class="btn" [routerLink]="'/admin-dogs'">MANAGE DOGS</button>
+                <button class="btn" [routerLink]="'/admin-adoptions'" >
+                    MANAGE <br> ADOPTIONS</button>
+            </div>
 
         </div>
 
