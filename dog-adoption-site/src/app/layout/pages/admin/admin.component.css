@@ -11,12 +11,14 @@
 
 .separator-paws {
     display: flex;
-    justify-content: end;
+    width: 100%;
+    justify-content: center;
     margin-right: 15rem;
     margin-block: 2rem;
 }
 
-.main-container {
+.main-container,
+.main-container-manage {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -26,55 +28,62 @@
     padding: 6rem 1rem 1rem 1rem;
 }
 
-.account-content {
+.account-content,
+.account-content-manage {
     border-radius: var(--border-radius);
-    width: 40rem;
+    width: 38rem;
     flex-grow: 1;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.account-header {
-    background-color: var(--accent-color);
-    border-radius: var(--border-radius);
-    width: 40%;
+.main-header {
     position: absolute;
-    top: -4rem;
-    left: 4rem;
+    top: -6rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
 }
 
-.main-headerimgcontainer {
-    background-color: var(--accent-color);
-    border-radius: 50%;
-    width: 180px;
-    height: 180px;
-    position: absolute;
-    top: -4rem;
-    right: 7rem;
-    display: flex;
-    justify-content: space-between;
+.main-header img {
+    border: 0.5rem solid var(--accent-color);
+    border-radius: 100%;
+    height: 10rem;
+    width: 10rem;
 }
 
 .main-title {
     color: var(--btn-color);
+    background-color: var(--accent-color);
+    height: fit-content;
+    margin: 0;
+    padding: 1rem 3rem 1rem 2rem;
+    border-radius: var(--border-radius);
+}
+
+.main-title h1 {
     font-weight: var(--header-link-weight);
-    width: 28rem;
-    height: auto;
-    margin: auto;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    line-height: var(--main-header-line-height);
     font-size: var(--main-title-header);
-    padding: 0 2rem 0rem 2rem;
-    text-align: center;
+    text-align: left;
+    margin: 0;
+    line-height: 1;
+}
+
+.account-buttons,
+.account-buttons-manage {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 2.5rem;
 }
 
 .gen-text-body {
-    font-size: var(--text-body-size);
-    margin: 2rem 6rem 3rem 6rem;
+    font-size: var(--gen-link-size);
+    cursor: pointer;
+    transition: 0.1s ease-out;
 }
 
 .btn-changeaccount {
@@ -84,12 +93,41 @@
     border: 3px solid var(--accent-color);
     border-radius: var(--border-radius);
     cursor: pointer;
+    transition: 0.1s ease-out;
 }
 
-.btn-adminbtnmanager {
+.gen-text-body:hover,
+.btn-changeaccount:hover {
+    transition: 0.1s ease-out;
+    color: var(--accent-color);
+}
+
+.main-container-manage {
+    padding: 2rem 1rem;
+}
+
+.account-buttons-manage {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn {
     background-color: var(--accent-color);
+    text-decoration: none;
+    color: var(--btn-color);
+    font-weight: var(--header-link-weight);
     font-size: var(--gen-link-size);
-    padding: 3px 17px 3px 17px;
     border-radius: var(--border-radius);
     cursor: pointer;
+    transition: 0.1s ease-out;
+    border: 3px solid transparent;
+    margin: 0.5rem 0;
+    padding: 0.5rem 1rem;
+}
+
+.btn:hover {
+    background-color: #FFFFFF;
+    color: var(--accent-color);
+    transition: 0.1s ease-out;
+    border-color: var(--accent-color);
 }
