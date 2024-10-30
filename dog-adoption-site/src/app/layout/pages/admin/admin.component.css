@@ -1,0 +1,95 @@
+* {
+    font-family: var(--font);
+    /* border: lime solid 1px; */
+}
+
+.top-paws {
+    position: absolute;
+    top: 4rem;
+    left: 63rem;
+}
+
+.separator-paws {
+    display: flex;
+    justify-content: end;
+    margin-right: 15rem;
+    margin-block: 2rem;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--container-bg-color);
+    border-radius: var(--border-radius);
+    position: relative;
+    padding: 6rem 1rem 1rem 1rem;
+}
+
+.account-content {
+    border-radius: var(--border-radius);
+    width: 40rem;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.account-header {
+    background-color: var(--accent-color);
+    border-radius: var(--border-radius);
+    width: 40%;
+    position: absolute;
+    top: -4rem;
+    left: 4rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-headerimgcontainer {
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    width: 180px;
+    height: 180px;
+    position: absolute;
+    top: -4rem;
+    right: 7rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-title {
+    color: var(--btn-color);
+    font-weight: var(--header-link-weight);
+    width: 28rem;
+    height: auto;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    line-height: var(--main-header-line-height);
+    font-size: var(--main-title-header);
+    padding: 0 2rem 0rem 2rem;
+    text-align: center;
+}
+
+.gen-text-body {
+    font-size: var(--text-body-size);
+    margin: 2rem 6rem 3rem 6rem;
+}
+
+.btn-changeaccount {
+    background-color: var(--btn-color);
+    font-size: var(--gen-link-size);
+    padding: 3px 17px 3px 17px;
+    border: 3px solid var(--accent-color);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+
+.btn-adminbtnmanager {
+    background-color: var(--accent-color);
+    font-size: var(--gen-link-size);
+    padding: 3px 17px 3px 17px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
