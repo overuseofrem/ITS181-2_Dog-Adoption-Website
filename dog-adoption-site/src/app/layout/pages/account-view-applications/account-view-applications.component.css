@@ -1,0 +1,126 @@
+* {
+    font-family: var(--font);
+    /*border: lime solid 1px; */
+}
+
+.top-paws {
+    position: absolute;
+    top: 4rem;
+    left: 63rem;
+}
+
+.separator-paws {
+    display: flex;
+    justify-content: end;
+    margin-right: 14rem;
+    margin-block: 2rem;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--container-bg-color);
+    border-radius: var(--border-radius);
+    position: relative;
+    padding: 6rem 1rem 1rem 1rem;
+}
+
+.main-header {
+    background-color: var(--accent-color);
+    border-radius: var(--border-radius);
+    width: 80%;
+    position: absolute;
+    top: -4rem;
+    left: 4rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-title-img {
+    width: 100%;
+    position: absolute;
+    top: -5.1rem;
+    left: -8rem;
+    transform: scale(0.8);
+}
+
+.main-title {
+    color: var(--btn-color);
+    font-weight: var(--header-link-weight);
+    width: 16rem;
+    height: auto;
+    line-height: var(--main-header-line-height);
+    font-size: var(--main-title-header);
+    padding: 0 2rem 0rem 2rem;
+    text-align: end;
+}
+
+.gen-text-body {
+    font-size: var(--text-body-size);
+    margin: 2rem 4rem 2rem 4rem;
+}
+
+.other-content, .main-content {
+    width: 100%;
+}
+
+.btn {
+    background-color: var(--accent-color);
+    text-decoration: none;
+    color: var(--btn-color);
+    font-weight: var(--header-link-weight);
+    font-size: var(--gen-link-size);
+    position: absolute;
+    padding: 1px 15px 1px 15px;
+    border-radius: var(--border-radius);
+    border: 3px solid;
+    right: 3rem;
+    bottom: -20px;
+    border: none;
+    cursor: pointer;
+    transition: 0.1s ease-out;
+    border: 3px solid transparent;
+}
+
+.btn:hover {
+    background-color: #FFFFFF;
+    color: var(--accent-color);
+    transition: 0.1s ease-out;
+    border-color: var(--accent-color);
+}
+
+.dogcard-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--container-bg-color);
+    border-radius: var(--border-radius);
+    position: relative;
+    padding: 1rem 1rem 1rem 1rem;
+    margin-bottom: 2rem;
+}
+
+.imgdogcard-content {
+    border-radius: var(--border-radius);
+    width: 20rem;
+    height: 20rem;
+    display: flex;
+    justify-content: left;
+    margin-left: 0;
+}
+
+.detaildogcard-content {
+    border-radius: var(--border-radius);
+    width: 20rem;
+    height: 20rem;
+}
+.gen-text-body-dogcard-head {
+    font-size: var(--gen-link-size);
+    margin: 0rem 0rem 0rem 0rem;
+}
+
+.gen-text-body-dogcard {
+    font-size: var(--text-body-size);
+    margin: 0rem 0rem 0rem 0rem;
+}
