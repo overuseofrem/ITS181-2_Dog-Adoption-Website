@@ -58,3 +58,20 @@
     margin: 2rem 4rem 4rem 4rem;
 }
 
+.dog-profile-btn {
+    padding: 8px 8px 3px 8px;
+    border-radius: 100%;
+    background-color: var(--accent-color);
+    position: absolute;
+    bottom: -25px;
+    right: 3rem;          
+}
+
+.dog-profile-btn-other {
+    padding: 8px 8px 3px 8px;
+    border-radius: 100%;
+    background-color: var(--accent-color);
+    position: absolute;
+    bottom: -25px;
+    right: 8rem;          
+}

@@ -65,9 +65,8 @@
     width: 100%;
 }
 
-.btn {
+/* .btn {
     background-color: var(--accent-color);
-    text-decoration: none;
     color: var(--btn-color);
     font-weight: var(--header-link-weight);
     font-size: var(--gen-link-size);
@@ -81,14 +80,24 @@
     cursor: pointer;
     transition: 0.1s ease-out;
     border: 3px solid transparent;
+    object-fit: cover; 
+} */
+
+.dog-profile-btn {
+    padding: 8px 8px 3px 8px;
+    border-radius: 100%;
+    background-color: var(--accent-color);
+    position: absolute;
+    bottom: -25px;
+    right: 3rem;          
 }
 
-.btn:hover {
+/* .btn:hover {
     background-color: #FFFFFF;
     color: var(--accent-color);
     transition: 0.1s ease-out;
     border-color: var(--accent-color);
-}
+} */
 
 .dogcard-container {
     display: flex;
