@@ -15,39 +15,53 @@
             <form action="#" method="POST">
                 <div>
                   <label for="id">ID:</label>
-                  <input type="id" id="id" name="id" required>
+                  <input type="number" id="id" name="id" disabled>
                 </div>
                 <div>
                   <label for="name">NAME:</label>
-                  <input type="name" id="name" name="name" required>
+                  <input type="text" id="name" name="name" required>
                 </div>
                 <div>
                   <label for="age">AGE:</label>
-                  <input type="age" id="age" name="age" required>
+                  <input type="number" id="age" name="age" required>
                 </div>
-                <div>
-                  <label for="gender">GENDER:</label>
-                  <input type="gender" id="gender" name="gender" required>
+                <div class="form-radio-group">
+                    <p><b>GENDER:</b></p>
+                    <div class="form-radio-group-options">
+                        <label for="gender_male">Male:</label>
+                        <input type="radio" id="gender_male" name="gender" required>
+                        <label for="gender_female">Female:</label>
+                        <input type="radio" id="gender_female" name="gender" required>
+                    </div>                    
                 </div>
-                <div>
-                    <label for="gender">BREED:</label>
-                    <input type="gender" id="gender" name="gender" required>
+                <div class="form-radio-group">
+                    <p><b>VACCINATION:</b></p>
+                    <div class="form-radio-group-options">
+                      <label for="vaccination_yes">Yes:</label>
+                      <input type="radio" id="vaccination_yes" name="vaccination" required>
+                      <label for="vaccination_no">No:</label>
+                      <input type="radio" id="vaccination_no" name="vaccination" required>
+                    </div>
+                </div>
+                <div class="form-radio-group">
+                  <p><b>STERILIZATION:</b></p>
+                  <div class="form-radio-group-options">
+                    <label for="sterilization_yes">Yes:</label>
+                    <input type="radio" id="sterilization_yes" name="sterilization" required>
+                    <label for="sterilization_no">No:</label>
+                    <input type="radio" id="sterilization_no" name="sterilization" required>
                   </div>
-                <div>
+                </div>
+                <div class="desc-form-input">
                   <label for="description">DESCRIPTION:</label>
                   <textarea id="description" name="description" rows="5" cols="50" required></textarea>
                 </div>
+
+                <button type="submit" class="dog-profile-btn"><img src="assets/dog pictures/check btn.svg" alt=""></button>
+                <button type="reset" class="dog-profile-btn-other"><img src="assets/dog pictures/del dog btn.svg" alt=""></button>
               </form>
-
+            
         </div>
-
-        <a href="" class="dog-profile-btn">
-          <img src="assets/dog pictures/edit btn.svg" alt="">
-        </a>
-    
-        <a href="" class="dog-profile-btn-other">
-            <img src="assets/dog pictures/del dog btn.svg" alt="">
-        </a>
 
       </div>
 

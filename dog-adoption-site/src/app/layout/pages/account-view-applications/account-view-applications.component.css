@@ -40,7 +40,7 @@
 .main-title-img {
     width: 100%;
     position: absolute;
-    top: -5.1rem;
+    top: -7.2rem;
     left: -8rem;
     transform: scale(0.8);
 }
@@ -65,71 +65,48 @@
     width: 100%;
 }
 
-/* .btn {
-    background-color: var(--accent-color);
-    color: var(--btn-color);
-    font-weight: var(--header-link-weight);
-    font-size: var(--gen-link-size);
-    position: absolute;
-    padding: 1px 15px 1px 15px;
-    border-radius: var(--border-radius);
-    border: 3px solid;
-    right: 3rem;
-    bottom: -20px;
-    border: none;
-    cursor: pointer;
-    transition: 0.1s ease-out;
-    border: 3px solid transparent;
-    object-fit: cover; 
-} */
-
-.dog-profile-btn {
-    padding: 8px 8px 3px 8px;
-    border-radius: 100%;
-    background-color: var(--accent-color);
-    position: absolute;
-    bottom: -25px;
-    right: 3rem;          
-}
-
-/* .btn:hover {
-    background-color: #FFFFFF;
-    color: var(--accent-color);
-    transition: 0.1s ease-out;
-    border-color: var(--accent-color);
-} */
+/* DOG CARD STYLES */
 
 .dogcard-container {
     display: flex;
-    align-items: center;
-    justify-content: center;
     background-color: var(--container-bg-color);
     border-radius: var(--border-radius);
     position: relative;
-    padding: 1rem 1rem 1rem 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
 }
 
 .imgdogcard-content {
-    border-radius: var(--border-radius);
     width: 20rem;
     height: 20rem;
     display: flex;
     justify-content: left;
-    margin-left: 0;
+}
+
+.imgdogcard-content img{
+    border-radius: var(--border-radius);
+    object-fit: cover;
 }
 
 .detaildogcard-content {
-    border-radius: var(--border-radius);
     width: 20rem;
     height: 20rem;
 }
 .gen-text-body-dogcard-head {
     font-size: var(--gen-link-size);
-    margin: 0rem 0rem 0rem 0rem;
+    font-weight: var(--header-link-weight);
+    text-transform: uppercase;
+    margin-top: 2rem;
 }
 
 .gen-text-body-dogcard {
     font-size: var(--text-body-size);
-    margin: 0rem 0rem 0rem 0rem;
+    margin: 0;
+    margin-top: 0.5rem;
+}
+
+.dog-profile-btn {
+    position: absolute;
+    bottom: -25px;
+    right: 3rem;
+    cursor: pointer;          
 }

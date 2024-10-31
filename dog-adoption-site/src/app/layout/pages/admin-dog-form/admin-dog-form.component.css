@@ -21,6 +21,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     background-color: var(--container-bg-color);
     border-radius: var(--border-radius);
     width: 38rem;
@@ -43,42 +44,44 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    object-fit: cover;
 }
 
 /* form styles */
 
-.dog-profile-btn {
-    padding: 8px 8px 3px 8px;
-    border-radius: 100%;
-    background-color: var(--accent-color);
+.dog-profile-btn,
+.dog-profile-btn-other {
+    border: none;
+    background-color: rgba(51, 170, 51, 0);
     position: absolute;
-    bottom: -25px;
-    right: 3rem;          
+    bottom: -32px;
+    right: 3rem;
+    cursor: pointer;          
 }
 
 .dog-profile-btn-other {
-    padding: 8px 8px 3px 8px;
-    border-radius: 100%;
-    background-color: var(--accent-color);
-    position: absolute;
-    bottom: -25px;
     right: 8rem;          
+}
+
+.dog-profile-btn img,
+.dog-profile-btn-other img{
+    width: 3.5rem;
+    height: 3.5rem;
 }
 
 form {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-bottom: 20px;
-    margin-left: 50px;
     width: 100%;
+    padding-bottom: 2rem;
 }
 
 input, textarea {
     border: 3px solid var(--accent-color);
     border-radius: var(--border-radius);
     padding: 10px;
-    width: 80%;
+    width: 100%;
     font-size: var(--text-body-size);
     resize: none;
     margin-bottom: 1.5rem;
@@ -91,4 +94,28 @@ label {
     margin-bottom: 5px;
     text-align: left;
 }
+
+.form-radio-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form-radio-group label,
+.form-radio-group input {
+    width: fit-content;
+    margin: 0;    
+}
+
+.form-radio-group-options{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.desc-form-input{
+    margin-top: 1rem;
+}
+
 
