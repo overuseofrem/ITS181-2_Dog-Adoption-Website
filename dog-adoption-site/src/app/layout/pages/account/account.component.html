@@ -8,19 +8,18 @@
 
         <div class="account-content">
 
-            <div class="account-header">
-                <h1 class="main-title">Welcome back, [User]!</h1>
-            </div>
-            <div class="main-headerimgcontainer">
-                <!--.
-                Insert Image of account here!
-                PS. I tried to put an image here but it doesnt become circular so idk what exactly i need
-                to do for this...
-                -->
+            <div class="main-header">
+                <div class="main-title">
+                    <h1>Welcome back,</h1>
+                    <h1>Erich!</h1>
+                </div>
+                <img src="assets/dog pictures/314f34.png" alt="">
             </div>
 
-            <button class="btn-changeaccount" type="submit">ACCOUNT DETAILS</button>
-            <p class="gen-text-body">SIGN OUT</p>
+            <div class="account-buttons">
+                <button class="btn-changeaccount" [routerLink]="'/account-details'">ACCOUNT DETAILS</button>
+                <p class="gen-text-body" [routerLink]="'/'">SIGN OUT</p>    
+            </div>
 
         </div>
 
@@ -31,9 +30,7 @@
     </div>
 
     <div class="empty-container-top-account">
-        <div class="separator-header-account">
-            <h1 class="main-title">MY APPLICATIONS</h1>
-        </div>
+        <button class="btn-disabled">MY APPLICATIONS</button>
     </div>
 
     <div class="dogcard-container">
@@ -42,20 +39,18 @@
             <img src="assets/dog pictures/dog-card-img.jpg" alt="" class="dog-card-img">
         </div>
         <div class="detaildogcard-content">
-            <p class="gen-text-body-dogcard-head"><b>Crema la Cookie</b></p><br>
-            <p class="gen-text-body-dogcard">AGE: 5 years old</p><br>
-            <p class="gen-text-body-dogcard">GENDER: Female</p><br>
-            <p class="gen-text-body-dogcard">BREED: Border Collie</p><br>
-            <p class="gen-text-body-dogcard">DATE SUBMITTED: 06/09/420</p><br>
-            <p class="gen-text-body-dogcard">STATUS: Rejected</p><br>
+            <h2 class="gen-text-body-dogcard-head"><b>Crema la Cookie</b></h2>
+            <p class="gen-text-body-dogcard">AGE: 5 years old</p>
+            <p class="gen-text-body-dogcard">GENDER: Female</p>
+            <p class="gen-text-body-dogcard">DATE SUBMITTED: 06/09/420</p>
+            <p class="gen-text-body-dogcard">STATUS: Rejected</p>
+            <img src="assets/dog pictures/view profile btn.svg" alt="" class="dog-profile-btn" [routerLink]="'/dog-profile'">
         </div>
 
     </div>
     
     <div class="empty-container-bottom-account">
-        <div class="separator-header-button-account">
-            <h1 class="main-title">VIEW MORE</h1>
-        </div>
+        <button class="btn" [routerLink]="'/account-view-applications'">VIEW MORE</button>
     </div>
 
 </div>

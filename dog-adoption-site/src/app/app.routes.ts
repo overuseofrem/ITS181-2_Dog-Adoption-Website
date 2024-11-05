@@ -14,6 +14,10 @@ import { AdminDetailsViewComponent } from './layout/pages/admin-details-view/adm
 import { AdminDetailsEditComponent } from './layout/pages/admin-details-edit/admin-details-edit.component';
 import { AdminAdoptionsComponent } from './layout/pages/admin-adoptions/admin-adoptions.component';
 import { AdminDogsComponent } from './layout/pages/admin-dogs/admin-dogs.component';
+import { AccountViewApplicationsComponent } from './layout/pages/account-view-applications/account-view-applications.component';
+import { AdminAdoptionSubmissionViewComponent } from './layout/pages/admin-adoption-submission-view/admin-adoption-submission-view.component';
+import { AdminDogProfileViewComponent } from './layout/pages/admin-dog-profile-view/admin-dog-profile-view.component';
+import { AdminDogFormComponent } from './layout/pages/admin-dog-form/admin-dog-form.component';
 
 export const routes: Routes = [
     { path: '', component: HomepageComponent, title: 'Homepage' },
@@ -31,4 +35,8 @@ export const routes: Routes = [
     { path: 'admin-details-edit', component: AdminDetailsEditComponent},
     { path: 'admin-adoptions', component:AdminAdoptionsComponent},
     { path: 'admin-dogs', component:AdminDogsComponent}, 
+    { path: 'account-view-applications', component: AccountViewApplicationsComponent},
+    { path: 'admin-adoption-submission-view', component: AdminAdoptionSubmissionViewComponent},
+    { path: 'admin-dog-profile-view', component: AdminDogProfileViewComponent},
+    { path: 'admin-dog-form', component: AdminDogFormComponent},
 ];

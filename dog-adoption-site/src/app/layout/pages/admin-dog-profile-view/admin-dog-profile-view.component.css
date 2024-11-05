@@ -1,0 +1,77 @@
+* {
+    font-family: var(--font);
+    /* border: lime solid 1px; */
+}
+
+.top-paws {
+    position: absolute;
+    top: 4rem;
+    left: 63rem;
+}
+
+.separator-paws {
+    display: flex;
+    justify-content: end;
+    margin-right: 14rem;
+    margin-block: 2rem;
+}
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--container-bg-color);
+    border-radius: var(--border-radius);
+    position: relative;
+    padding: 27rem 1rem 1rem 1rem;
+}
+
+.main-header {
+    background-color: var(--accent-color);
+    border-radius: var(--border-radius);
+    width: 80%;
+    position: absolute;
+    top: -4rem;
+    left: 4rem;
+    height: 30rem;
+}
+
+.profile-img {
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    width: 100%;
+    height: 100%;
+}
+
+.dog-name {
+    font-weight: var(--header-link-weight);
+    text-align: center;
+}
+
+.dog-details {
+    font-weight: 400;
+    font-style: italic;
+    text-align: center;
+}
+
+.gen-text-body {
+    font-size: var(--text-body-size);
+    margin: 2rem 4rem 4rem 4rem;
+}
+
+.dog-profile-btn {
+    padding: 8px 8px 3px 8px;
+    border-radius: 100%;
+    background-color: var(--accent-color);
+    position: absolute;
+    bottom: -25px;
+    right: 3rem;          
+}
+
+.dog-profile-btn-other {
+    padding: 8px 8px 3px 8px;
+    border-radius: 100%;
+    background-color: var(--accent-color);
+    position: absolute;
+    bottom: -25px;
+    right: 8rem;          
+}
