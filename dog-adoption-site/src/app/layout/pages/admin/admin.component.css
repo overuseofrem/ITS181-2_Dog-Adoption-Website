@@ -80,10 +80,20 @@
     padding: 0 2.5rem;
 }
 
+.account-buttons {
+    align-items: start;
+}
+
+.account-buttons-left button{
+    margin-bottom: 1rem;
+}
+
 .gen-text-body {
     font-size: var(--gen-link-size);
+    width: 10rem;
     cursor: pointer;
     transition: 0.1s ease-out;
+    margin: 0;
 }
 
 .btn-changeaccount {

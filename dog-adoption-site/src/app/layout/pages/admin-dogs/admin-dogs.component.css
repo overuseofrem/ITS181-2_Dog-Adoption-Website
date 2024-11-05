@@ -82,16 +82,22 @@
 
 .account-buttons {
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: space-between;
     width: 100%;
     padding: 0 2.5rem;
 }
 
+.account-buttons-left button{
+    margin-bottom: 1rem;
+}
+
 .gen-text-body {
     font-size: var(--gen-link-size);
+    width: 10rem;
     cursor: pointer;
     transition: 0.1s ease-out;
+    margin: 0;
 }
 
 .btn-changeaccount {

@@ -13,14 +13,17 @@
                     <h1>Welcome,</h1>
                     <h1>ADMIN!</h1>
                 </div>
-                <img src="assets/dog pictures/314f34.png" alt="">
+                <img src="assets/dog pictures/default-user.png" alt="">
             </div>
 
             <div class="account-buttons">
-                <button class="btn-changeaccount" [routerLink]="'/admin-details'">ACCOUNT DETAILS</button>
-                <p class="gen-text-body" [routerLink]="'/'">SIGN OUT</p>    
+                <div class="account-buttons-left">
+                    <button class="btn-changeaccount" [routerLink]="'/admin-details'">ACCOUNT DETAILS</button>
+                    <button class="btn-changeaccount" [routerLink]="'/admin-add'">CREATE NEW ADMIN</button>
+                </div>
+                <p class="gen-text-body" [routerLink]="'/'">SIGN OUT</p>                    
             </div>
-
+           
         </div>
 
     </div>

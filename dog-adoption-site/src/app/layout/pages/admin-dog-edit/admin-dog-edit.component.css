@@ -21,6 +21,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     background-color: var(--container-bg-color);
     border-radius: var(--border-radius);
     width: 38rem;
@@ -33,9 +34,9 @@
     justify-content: center;
 }
 
-.head-img-container {
+.head-img {
     background-color: var(--accent-color);
-    border-radius: 100%;
+    border-radius: 50px;
     width: 15rem;
     height: 15rem;
     position: absolute;
@@ -43,86 +44,78 @@
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.head-img {
-    width: 14rem;
-    height: 14rem;
     object-fit: cover;
-    border-radius: 100%;
-}
-
-.main-title {
-    color: var(--btn-color);
-    font-weight: var(--header-link-weight);
-    width: 14rem;
-    line-height: var(--main-header-line-height);
-    font-size: var(--main-title-header);
-    padding: 0rem 2rem 0rem 2rem;
-    display: flex;
-    flex-direction: row;
 }
 
 /* form styles */
 
-.btn {
-    background-color: var(--accent-color);
-    text-decoration: none;
-    color: var(--btn-color);
-    font-weight: var(--header-link-weight);
-    font-size: var(--gen-link-size);
+.dog-profile-btn,
+.dog-profile-btn-other {
+    border: none;
+    background-color: rgba(51, 170, 51, 0);
     position: absolute;
-    padding: 3px 17px 3px 17px;
-    border-radius: var(--border-radius);
+    bottom: -32px;
     right: 3rem;
-    bottom: -20px;
-    border: none;
-    cursor: pointer;
-    transition: 0.1s ease-out;
-    border: 3px solid transparent;
+    cursor: pointer;          
 }
 
-.btn:hover {
-    background-color: #FFFFFF;
-    color: var(--accent-color);
-    transition: 0.1s ease-out;
-    border-color: var(--accent-color);
+.dog-profile-btn-other {
+    right: 8rem;          
 }
 
-.btn-other {
-    background-color: white;
-    text-decoration: none;
-    color: black;
-    font-size: 20px;
-    border: none;
-    cursor: pointer;
-    transition: 0.1s ease-out;
-    margin: 3rem 0 0 -26rem;
-}
-
-.btn-other:hover {
-    color: var(--accent-color);
+.dog-profile-btn img,
+.dog-profile-btn-other img{
+    width: 3.5rem;
+    height: 3.5rem;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin-bottom: 3rem;
+    justify-content: center;
+    width: 100%;
+    padding-bottom: 2rem;
 }
 
 input, textarea {
     border: 3px solid var(--accent-color);
     border-radius: var(--border-radius);
     padding: 10px;
-    width: 80%;
+    width: 100%;
     font-size: var(--text-body-size);
     resize: none;
     margin-bottom: 1.5rem;
 }
 
-label{
+label {
+    display: block;
     font-weight: bold;
+    width: 80%;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.form-radio-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form-radio-group label,
+.form-radio-group input {
+    width: fit-content;
+    margin: 0;    
+}
+
+.form-radio-group-options{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.desc-form-input{
+    margin-top: 1rem;
 }
 
 input[type="file"]{

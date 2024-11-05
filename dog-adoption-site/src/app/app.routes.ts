@@ -15,9 +15,12 @@ import { AdminDetailsEditComponent } from './layout/pages/admin-details-edit/adm
 import { AdminAdoptionsComponent } from './layout/pages/admin-adoptions/admin-adoptions.component';
 import { AdminDogsComponent } from './layout/pages/admin-dogs/admin-dogs.component';
 import { AccountViewApplicationsComponent } from './layout/pages/account-view-applications/account-view-applications.component';
-import { AdminAdoptionSubmissionViewComponent } from './layout/pages/admin-adoption-submission-view/admin-adoption-submission-view.component';
-import { AdminDogProfileViewComponent } from './layout/pages/admin-dog-profile-view/admin-dog-profile-view.component';
-import { AdminDogFormComponent } from './layout/pages/admin-dog-form/admin-dog-form.component';
+import { AdminAdoptionViewComponent } from './layout/pages/admin-adoption-view/admin-adoption-view.component';
+import { AdminDogViewComponent } from './layout/pages/admin-dog-view/admin-dog-view.component';
+import { AdminDogEditComponent } from './layout/pages/admin-dog-edit/admin-dog-edit.component';
+import { AdminDogAddComponent } from './layout/pages/admin-dog-add/admin-dog-add.component';
+import { AdminAddComponent } from './layout/pages/admin-add/admin-add.component';
+import { SignInAdminComponent } from './layout/pages/sign-in-admin/sign-in-admin.component';
 
 export const routes: Routes = [
     { path: '', component: HomepageComponent, title: 'Homepage' },
@@ -27,16 +30,21 @@ export const routes: Routes = [
     { path: 'dog-profile', component: DogProfileComponent,  title: 'Dog Profile' },
     { path: 'sign-up', component: SignUpComponent},
     { path: 'sign-in', component: SignInComponent},
+    { path: 'sign-in-admin', component: SignInAdminComponent},
+    // account pages
     { path: 'account', component: AccountComponent},
     { path: 'account-details', component: AccountDetailsViewComponent},
     { path: 'account-details-edit', component: AccountDetailsEditComponent},
+    { path: 'account-view-applications', component: AccountViewApplicationsComponent},
+    // admin pages
     { path: 'admin', component: AdminComponent},
+    { path: 'admin-add', component: AdminAddComponent},
     { path: 'admin-details', component: AdminDetailsViewComponent},
     { path: 'admin-details-edit', component: AdminDetailsEditComponent},
-    { path: 'admin-adoptions', component:AdminAdoptionsComponent},
     { path: 'admin-dogs', component:AdminDogsComponent}, 
-    { path: 'account-view-applications', component: AccountViewApplicationsComponent},
-    { path: 'admin-adoption-submission-view', component: AdminAdoptionSubmissionViewComponent},
-    { path: 'admin-dog-profile-view', component: AdminDogProfileViewComponent},
-    { path: 'admin-dog-form', component: AdminDogFormComponent},
+    { path: 'admin-dog-view', component: AdminDogViewComponent},
+    { path: 'admin-dog-edit', component: AdminDogEditComponent},
+    { path: 'admin-dog-add', component: AdminDogAddComponent},
+    { path: 'admin-adoptions', component:AdminAdoptionsComponent},
+    { path: 'admin-adoption-view', component: AdminAdoptionViewComponent},
 ];
