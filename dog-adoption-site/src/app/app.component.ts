@@ -1,13 +1,16 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { SidenavComponent } from "./layout/sidenav/sidenav.component";
 import { FooterComponent } from './layout/footer/footer.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     RouterModule,
+    RouterOutlet,
+    HttpClientModule,
     SidenavComponent, 
     FooterComponent, 
     ],

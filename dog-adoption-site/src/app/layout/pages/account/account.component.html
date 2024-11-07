@@ -11,14 +11,14 @@
             <div class="main-header">
                 <div class="main-title">
                     <h1>Welcome back,</h1>
-                    <h1>Erich!</h1>
+                    <h1>{{nickname}}!</h1>
                 </div>
                 <img src="assets/dog pictures/default-user.png" alt="">
             </div>
 
             <div class="account-buttons">
-                <button class="btn-changeaccount" [routerLink]="'/account-details'">ACCOUNT DETAILS</button>
-                <p class="gen-text-body" [routerLink]="'/'">SIGN OUT</p>    
+                <button class="btn-changeaccount" [routerLink]="['/account/details', user.id]">ACCOUNT DETAILS</button>
+                <p class="gen-text-body" (click)="logout()">SIGN OUT</p>    
             </div>
 
         </div>

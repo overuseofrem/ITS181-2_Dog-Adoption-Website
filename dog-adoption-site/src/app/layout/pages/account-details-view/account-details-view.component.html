@@ -14,16 +14,16 @@
                     </div> 
                 </div>
 
-                <form action="#" method="POST">
-                    <input type="name" id="name" name="name" value="{{dummyName}}" disabled>
-                    <input type="email" id="email" name="email" value="{{dummyEmail}}" disabled>
-                    <input type="password" id="password" name="password" value="{{dummyPassword}}" disabled>
-                    <input type="tel" id="contact" name="contact" pattern="[0-9]{11}" value="{{dummyContact}}" disabled>
-                    <input type="text" id="address" name="address" value="{{dummyAddress}}" disabled>
-                    <button class="btn" [routerLink]="'/account-details-edit'">EDIT ACCOUNT</button>
+                <form>
+                    <input type="name" id="name" name="name" [(ngModel)]="user.name" disabled>
+                    <input type="email" id="email" name="email" [(ngModel)]="user.username" disabled>
+                    <input type="password" id="password" name="password" [(ngModel)]="user.password" disabled>
+                    <input type="tel" id="contact" name="contact" pattern="[0-9]{11}" [(ngModel)]="user.contact" disabled>
+                    <input type="text" id="address" name="address" [(ngModel)]="user.address" disabled>
+                    <button class="btn" [routerLink]="['/account/details/edit', user.id]">EDIT ACCOUNT</button>
                 </form>
                 
-                <button class="btn-other">DELETE ACCOUNT</button>
+                <button class="btn-other" (click)="deleteUser()">DELETE ACCOUNT</button>
 
             </div>
 

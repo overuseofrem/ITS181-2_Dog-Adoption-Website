@@ -15,9 +15,9 @@
                 </div>
             </div>
 
-            <form action="#" method="POST">
-                <input type="email" id="email" name="email" placeholder="Enter your email..." required>
-                <input type="password" id="password" name="password" placeholder="Enter your password..." required>
+            <form (ngSubmit)="login()">
+                <input type="email" id="email" name="email" placeholder="Enter your email..." [(ngModel)]="user.username" required>
+                <input type="password" id="password" name="password" placeholder="Enter your password..." [(ngModel)]="user.password" required>
                 <button class="btn" type="submit">SIGN IN!</button>
             </form>
 
