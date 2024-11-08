@@ -13,22 +13,21 @@ import { AuthService } from '../../../service/auth.service';
 export class AccountComponent implements OnInit {
   
   user: User = new User();
-  nickname?: string;
+  nickname: string = "User";
 
   private authService = inject(AuthService);
   private router = inject(Router);
 
   ngOnInit(): void {
-    // check if there is a session
-    this.authService.getSession().subscribe(
-      response => {
-        this.nickname = response.user.name.replace(/ .*/,'');
-        this.user = response.user;
-      },
-      error => {
-        const errorMsg = error?.error?.message || 'ERROR: An unknown error occurred';
-        alert(errorMsg);
-        this.router.navigate(['/sign-in']);
+    this.authService.checkUserSession("USER").subscribe(
+      user => {
+        if (user && user.name) {
+          this.user = user;
+          this.nickname = user.name.replace(/ .*/, '');
+        } else {
+          alert('ERROR: Unauthorized access');
+          this.router.navigate(['/sign-in']);
+        }
       }
     );
   }

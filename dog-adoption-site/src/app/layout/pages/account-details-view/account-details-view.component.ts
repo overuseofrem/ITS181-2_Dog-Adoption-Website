@@ -13,11 +13,6 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './account-details-view.component.css'
 })
 export class AccountDetailsViewComponent {
-  dummyName: String = "Erich Erichsson"
-  dummyEmail: String = "erichnoho@yahoo.com"
-  dummyPassword: String = "theerich555042"
-  dummyContact: String = "09138495844"
-  dummyAddress: String = "SomeRandoST., 2134 ave."
 
   user: User = new User();
 
@@ -26,20 +21,14 @@ export class AccountDetailsViewComponent {
   private router = inject(Router);
 
   ngOnInit(): void {
-    // Fetch user data from session if available
-    this.authService.getSession().subscribe(
-      response => {
-        if (response.user && response.user.id) {
-          this.user = response.user; // Set the user from the session
+    this.authService.checkUserSession("USER").subscribe(
+      user => {
+        if (user) {
+          this.user = user;
         } else {
-          alert('ERROR: User session not found');
+          alert('ERROR: Unauthorized access');
           this.router.navigate(['/sign-in']);
         }
-      },
-      error => {
-        const errorMsg = error?.error?.message || 'An unknown error occurred';
-        alert(errorMsg);
-        this.router.navigate(['/sign-in']);
       }
     );
   }

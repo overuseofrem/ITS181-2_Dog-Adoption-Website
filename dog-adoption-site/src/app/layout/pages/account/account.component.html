@@ -13,7 +13,7 @@
                     <h1>Welcome back,</h1>
                     <h1>{{nickname}}!</h1>
                 </div>
-                <img src="assets/dog pictures/default-user.png" alt="">
+                <img [src]="'http://localhost:18080/uploads/' + user.img" alt="" class="head-img">
             </div>
 
             <div class="account-buttons">
@@ -50,7 +50,7 @@
     </div>
     
     <div class="empty-container-bottom-account">
-        <button class="btn" [routerLink]="'/account-view-applications'">VIEW MORE</button>
+        <button class="btn" [routerLink]="'/account/applications'">VIEW MORE</button>
     </div>
 
 </div>

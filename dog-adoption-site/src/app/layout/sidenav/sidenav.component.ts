@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
+import { User } from '../../model/user.model';
+import { AuthService } from '../../service/auth.service';
 
 @Component({
   selector: 'app-sidenav',
@@ -9,24 +11,30 @@ import { Router, RouterModule } from '@angular/router';
   templateUrl: './sidenav.component.html',
   styleUrl: './sidenav.component.css'
 })
-export class SidenavComponent implements OnInit{
+export class SidenavComponent implements OnInit {
   
-  // todo authentication logic
-  isAuthenticated = true;  
-  userRole: string | null=null
-
+  isAuthenticated = false;
+  userRole: string | null = null;
+  private authService = inject(AuthService);
+  
   ngOnInit(): void {
-    // this.userRole = 'admin'
+    this.authService.isAuthenticated$.subscribe(
+      authStatus => this.isAuthenticated = authStatus
+    );
+    this.authService.userRole$.subscribe(
+      role => this.userRole = role
+    );
   }
 
   getAccountRoute(): string {
     if (!this.isAuthenticated) {
       return '/sign-in';
-    } else if (this.userRole === 'applicant') {
+    } else if (this.userRole === 'USER') {
       return '/account';
-    } else if (this.userRole === 'admin') {
+    } else if (this.userRole === 'ADMIN') {
       return '/admin';
     }
-    return '/sign-in';  // Default
+    return '/sign-in';
   }
+  
 }

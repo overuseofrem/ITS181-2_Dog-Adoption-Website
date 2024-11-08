@@ -25,6 +25,7 @@ export class SignUpComponent {
       alert('ERROR: Passwords do not match');
     } else {
       this.user.role = "USER";
+      this.user.img = "default-user.png"
       this.authService.register(this.user).subscribe(
         response => {
           alert(response.message);

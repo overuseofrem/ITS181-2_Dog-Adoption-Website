@@ -10,14 +10,12 @@
 
                 <div class="main-header">
                     <div class="head-img-container">
-                        <img src="assets/dog pictures/default-user.png" alt="" class="head-img">
+                        <img [src]="'http://localhost:18080/uploads/' + user.img" alt="" class="head-img">
                     </div> 
                 </div>
 
                 <form>
                     <input type="name" id="name" name="name" [(ngModel)]="user.name" disabled>
-                    <input type="email" id="email" name="email" [(ngModel)]="user.username" disabled>
-                    <input type="password" id="password" name="password" [(ngModel)]="user.password" disabled>
                     <input type="tel" id="contact" name="contact" pattern="[0-9]{11}" [(ngModel)]="user.contact" disabled>
                     <input type="text" id="address" name="address" [(ngModel)]="user.address" disabled>
                     <button class="btn" [routerLink]="['/account/details/edit', user.id]">EDIT ACCOUNT</button>

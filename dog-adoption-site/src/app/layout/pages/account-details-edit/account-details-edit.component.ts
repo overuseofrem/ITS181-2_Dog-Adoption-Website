@@ -4,7 +4,7 @@ import { User } from '../../../model/user.model';
 import { AuthService } from '../../../service/auth.service';
 import { UserService } from '../../../service/user.service';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -17,26 +17,48 @@ import { FormsModule } from '@angular/forms';
 export class AccountDetailsEditComponent implements OnInit {
   
   user: User = new User();
+  selectedFile: File | null = null; 
 
   private authService = inject(AuthService);
   private userService = inject(UserService);
   private router = inject(Router);
 
+  constructor(private http: HttpClient) {}
+
   ngOnInit(): void {
-    // Fetch user data from session if available
-    this.authService.getSession().subscribe(
-      response => {
-        if (response.user && response.user.id) {
-          this.user = response.user; // Set the user from the session
+    this.authService.checkUserSession("USER").subscribe(
+      user => {
+        if (user) {
+          this.user = user;
         } else {
-          alert('ERROR: User session not found');
+          alert('ERROR: Unauthorized access');
           this.router.navigate(['/sign-in']);
         }
+      }
+    );
+  }
+
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files[0]) {
+      this.selectedFile = input.files[0];
+    }
+  }
+
+  uploadImage(): void {
+    if (!this.selectedFile || !this.user.id) {
+      alert("ERROR: No file selected!");
+      return;
+    }
+
+    this.userService.uploadUserImage(this.user.id, this.selectedFile).subscribe(
+      (response) => {
+        alert("Image uploaded successfully!");
+        this.user.img = response.img;
       },
-      error => {
-        const errorMsg = error?.error?.message || 'An unknown error occurred';
-        alert(errorMsg);
-        this.router.navigate(['/sign-in']);
+      (error) => {
+        console.error("Error uploading image:", error);
+        alert("ERROR: Failed to upload image.");
       }
     );
   }
@@ -50,7 +72,6 @@ export class AccountDetailsEditComponent implements OnInit {
     this.userService.updateUser(this.user.id, this.user).subscribe(
       response => {
         alert('User updated successfully');
-        this.router.navigate(['/account']);  // Navigate back to the dashboard
       },
       error => {
         alert('Error updating user: ' + error);
@@ -67,4 +88,5 @@ export class AccountDetailsEditComponent implements OnInit {
     const input = document.getElementById('contact') as HTMLInputElement;
     input.placeholder = "Enter phone number...";
   }
+
 }

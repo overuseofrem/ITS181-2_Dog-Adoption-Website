@@ -31,4 +31,10 @@ export class UserService {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 
+  uploadUserImage(id: number, imageFile: File): Observable<User> {
+    const formData = new FormData();
+    formData.append('image', imageFile, imageFile.name);
+    return this.http.post<User>(`${this.apiUrl}/${id}/upload-image`, formData);
+  }
+
 }
