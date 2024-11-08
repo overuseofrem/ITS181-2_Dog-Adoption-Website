@@ -57,14 +57,8 @@
                         <div class="tc-desc">
                             <p>AGE: {{dog.age}}</p>
                             <p>GENDER: {{dog.gender}}</p>
-                            <p>VACCINATED:
-                                <span *ngIf="dog.vacc"> Yes</span>
-                                <span *ngIf="!dog.vacc"> No</span>
-                            </p>
-                            <p>STERILIZED:
-                                <span *ngIf="dog.ster"> Yes</span>
-                                <span *ngIf="!dog.ster"> No</span>
-                            </p>
+                            <p>VACCINATED: {{ dog.vacc ? 'Yes' : 'No' }}</p>
+                            <p>STERILIZED: {{ dog.ster ? 'Yes' : 'No' }}</p>
                         </div>
                     </div>
                     <div class="tc-right">

@@ -27,7 +27,7 @@ export const routes: Routes = [
     { path: 'contact', component: ContactComponent,  title: 'Contact' },
     { path: 'about-us', component: AboutUsComponent,  title: 'About Us' },
     { path: 'adoptable-dogs', component: AdoptableDogsComponent,  title: 'Adoptable Dogs' },
-    { path: 'dog-profile', component: DogProfileComponent,  title: 'Dog Profile' },
+    { path: 'dog-profile/:id', component: DogProfileComponent,  title: 'Dog Profile' },
     { path: 'sign-up', component: SignUpComponent, title: 'Sign-up'},
     { path: 'sign-in', component: SignInComponent, title: 'Sign-in'},
     { path: 'sign-in-admin', component: SignInAdminComponent, title: 'Admin Sign-in'},

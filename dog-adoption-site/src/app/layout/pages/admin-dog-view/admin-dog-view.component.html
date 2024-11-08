@@ -9,18 +9,16 @@
         <div class="main-content">
 
             <div class="main-header">
-                <!-- <img src="assets/dog pictures/baptist-standaert-mx0DEnfYxic-unsplash.jpg" alt="" class="profile-img"> -->
                 <img [src]="'http://localhost:18080/uploads-dogs/' + dog.img" alt="" class="profile-img">
 
             </div>
 
             <h1 class="dog-name">{{dog.name}}</h1>
             <h3 class="dog-details">
-                {{dog.age}} years old, {{dog.gender}},
-                <span *ngIf="dog.vacc"> Vaccinated,</span>
-                <span *ngIf="!dog.vacc"> Unvaccinated,</span>
-                <span *ngIf="dog.ster"> Sterilized</span>
-                <span *ngIf="!dog.ster"> Unsterilized</span>
+                {{dog.age}} years old, 
+                {{dog.gender}}, 
+                {{ dog.vacc ? 'Vaccinated' : 'Unvaccinated' }},
+                {{ dog.ster ? 'Sterilized' : 'Unsterilized' }}
             </h3>
 
             <p class="gen-text-body">
