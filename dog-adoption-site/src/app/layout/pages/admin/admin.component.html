@@ -10,18 +10,17 @@
 
             <div class="main-header">
                 <div class="main-title">
-                    <h1>Welcome,</h1>
-                    <h1>ADMIN!</h1>
+                    <h1>Welcome, Admin {{nickname}}!</h1>
                 </div>
-                <img src="assets/dog pictures/default-user.png" alt="">
+                <img [src]="'http://localhost:18080/uploads/' + user.img" alt="" class="head-img">
             </div>
 
             <div class="account-buttons">
                 <div class="account-buttons-left">
-                    <button class="btn-changeaccount" [routerLink]="'/admin-details'">ACCOUNT DETAILS</button>
-                    <button class="btn-changeaccount" [routerLink]="'/admin-add'">CREATE NEW ADMIN</button>
+                    <button class="btn-changeaccount" [routerLink]="['/admin/details', user.id]">ACCOUNT DETAILS</button>
+                    <button class="btn-changeaccount" [routerLink]="'/admin/add'">CREATE NEW ADMIN</button>
                 </div>
-                <p class="gen-text-body" [routerLink]="'/'">SIGN OUT</p>                    
+                <p class="gen-text-body" (click)="logout()">SIGN OUT</p>                    
             </div>
            
         </div>
@@ -37,8 +36,8 @@
         <div class="account-content-manage">
 
             <div class="account-buttons-manage">
-                <button class="btn" [routerLink]="'/admin-dogs'">MANAGE DOGS</button>
-                <button class="btn" [routerLink]="'/admin-adoptions'" >
+                <button class="btn" [routerLink]="'/admin/dogs'">MANAGE DOGS</button>
+                <button class="btn" [routerLink]="'/admin/adoptions'" >
                     MANAGE <br> ADOPTIONS</button>
             </div>
 

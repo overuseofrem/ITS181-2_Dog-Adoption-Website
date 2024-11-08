@@ -10,18 +10,17 @@
 
             <div class="account-header">
                 <div class="account-title">
-                    <h1>Welcome,</h1>
-                    <h1>ADMIN!</h1>
+                    <h1>Welcome, Admin {{nickname}}!</h1>
                 </div>
-                <img src="assets/dog pictures/default-user.png" alt="">
+                <img [src]="'http://localhost:18080/uploads/' + user.img" alt="" class="head-img">
             </div>
 
             <div class="account-buttons">
                 <div class="account-buttons-left">
-                    <button class="btn-changeaccount" [routerLink]="'/admin-details'">ACCOUNT DETAILS</button>
-                    <button class="btn-changeaccount" [routerLink]="'/admin-add'">CREATE NEW ADMIN</button>
+                    <button class="btn-changeaccount" [routerLink]="['/admin/details', user.id]">ACCOUNT DETAILS</button>
+                    <button class="btn-changeaccount" [routerLink]="'/admin/add'">CREATE NEW ADMIN</button>
                 </div>
-                <p class="gen-text-body" [routerLink]="'/'">SIGN OUT</p>                    
+                <p class="gen-text-body" (click)="logout()">SIGN OUT</p>                    
             </div>
 
         </div>
@@ -37,158 +36,44 @@
         <div class="main-content">
 
             <div class="main-header">
-                <img src="assets/dog pictures/add dog btn.svg" alt="" [routerLink]="'/'">
+                <img src="assets/dog pictures/add dog btn.svg" alt="" [routerLink]="'/admin/dogs/add'">
                 <h1 class="main-title">LIST OF DOGS</h1>
             </div>
 
             <div class="table-container">
+
+                <!-- no dogs message -->
+                <span *ngIf="dogs.length === 0" class="no-dogs-message"><p>No dogs found in the database.</p></span>
+
                 <!-- table card 1 -->
-                <div class="tc-container">
+                <div class="tc-container" *ngFor="let dog of dogs">
                     <div class="tc-left">
-                        <img src="assets/dog pictures/dog-card-img.jpg" alt="">
+                        <img [src]="'http://localhost:18080/uploads-dogs/' + dog.img" alt="">
                     </div>
                     <div class="tc-center">
                         <div class="tc-name">
-                            <h2>Dog</h2>
+                            <h2>{{dog.name}}</h2>
                         </div>
                         <div class="tc-desc">
-                            <p>AGE: info info info</p>
-                            <p>GENDER: info info info</p>
-                            <p>BREED: info info info</p>
+                            <p>AGE: {{dog.age}}</p>
+                            <p>GENDER: {{dog.gender}}</p>
+                            <p>VACCINATED:
+                                <span *ngIf="dog.vacc"> Yes</span>
+                                <span *ngIf="!dog.vacc"> No</span>
+                            </p>
+                            <p>STERILIZED:
+                                <span *ngIf="dog.ster"> Yes</span>
+                                <span *ngIf="!dog.ster"> No</span>
+                            </p>
                         </div>
                     </div>
                     <div class="tc-right">
-                        <img src="assets/dog pictures/view btn.svg" alt="" [routerLink]="'/'">
-                        <img src="assets/dog pictures/edit btn.svg" alt="" [routerLink]="'/'">
-                        <img src="assets/dog pictures/del dog btn.svg" alt="" [routerLink]="'/'">
+                        <img src="assets/dog pictures/view btn.svg" alt="" [routerLink]="['/admin/dogs/view', dog.id]">
+                        <img src="assets/dog pictures/edit btn.svg" alt="" [routerLink]="['/admin/dogs/edit', dog.id]">
+                        <img src="assets/dog pictures/del dog btn.svg" alt="" (click)="deleteDog(dog.id)">
                     </div>
                 </div>
-                <!-- table card 2 -->
-                <div class="tc-container">
-                    <div class="tc-left">
-                        <img src="assets/dog pictures/dog-card-img.jpg" alt="">
-                    </div>
-                    <div class="tc-center">
-                        <div class="tc-name">
-                            <h2>Dog</h2>
-                        </div>
-                        <div class="tc-desc">
-                            <p>AGE: info info info</p>
-                            <p>GENDER: info info info</p>
-                            <p>BREED: info info info</p>
-                        </div>
-                    </div>
-                    <div class="tc-right">
-                        <img src="assets/dog pictures/view btn.svg" alt="" [routerLink]="'/'">
-                        <img src="assets/dog pictures/edit btn.svg" alt="" [routerLink]="'/'">
-                        <img src="assets/dog pictures/del dog btn.svg" alt="" [routerLink]="'/'">
-                    </div>
-                </div>
-                <!-- table card 3 -->
-                <div class="tc-container">
-                    <div class="tc-left">
-                        <img src="assets/dog pictures/dog-card-img.jpg" alt="">
-                    </div>
-                    <div class="tc-center">
-                        <div class="tc-name">
-                            <h2>Dog</h2>
-                        </div>
-                        <div class="tc-desc">
-                            <p>AGE: info info info</p>
-                            <p>GENDER: info info info</p>
-                            <p>BREED: info info info</p>
-                        </div>
-                    </div>
-                    <div class="tc-right">
-                        <img src="assets/dog pictures/view btn.svg" alt="" [routerLink]="'/'">
-                        <img src="assets/dog pictures/edit btn.svg" alt="" [routerLink]="'/'">
-                        <img src="assets/dog pictures/del dog btn.svg" alt="" [routerLink]="'/'">
-                    </div>
-                </div>
-                <!-- table card 4 -->
-                <div class="tc-container">
-                    <div class="tc-left">
-                        <img src="assets/dog pictures/dog-card-img.jpg" alt="">
-                    </div>
-                    <div class="tc-center">
-                        <div class="tc-name">
-                            <h2>Dog</h2>
-                        </div>
-                        <div class="tc-desc">
-                            <p>AGE: info info info</p>
-                            <p>GENDER: info info info</p>
-                            <p>BREED: info info info</p>
-                        </div>
-                    </div>
-                    <div class="tc-right">
-                        <img src="assets/dog pictures/view btn.svg" alt="" [routerLink]="'/'">
-                        <img src="assets/dog pictures/edit btn.svg" alt="" [routerLink]="'/'">
-                        <img src="assets/dog pictures/del dog btn.svg" alt="" [routerLink]="'/'">
-                    </div>
-                </div>
-                <!-- table card 5 -->
-                <div class="tc-container">
-                    <div class="tc-left">
-                        <img src="assets/dog pictures/dog-card-img.jpg" alt="">
-                    </div>
-                    <div class="tc-center">
-                        <div class="tc-name">
-                            <h2>Dog</h2>
-                        </div>
-                        <div class="tc-desc">
-                            <p>AGE: info info info</p>
-                            <p>GENDER: info info info</p>
-                            <p>BREED: info info info</p>
-                        </div>
-                    </div>
-                    <div class="tc-right">
-                        <img src="assets/dog pictures/view btn.svg" alt="" [routerLink]="'/'">
-                        <img src="assets/dog pictures/edit btn.svg" alt="" [routerLink]="'/'">
-                        <img src="assets/dog pictures/del dog btn.svg" alt="" [routerLink]="'/'">
-                    </div>
-                </div>
-                <!-- table card 6 -->
-                <div class="tc-container">
-                    <div class="tc-left">
-                        <img src="assets/dog pictures/dog-card-img.jpg" alt="">
-                    </div>
-                    <div class="tc-center">
-                        <div class="tc-name">
-                            <h2>Dog</h2>
-                        </div>
-                        <div class="tc-desc">
-                            <p>AGE: info info info</p>
-                            <p>GENDER: info info info</p>
-                            <p>BREED: info info info</p>
-                        </div>
-                    </div>
-                    <div class="tc-right">
-                        <img src="assets/dog pictures/view btn.svg" alt="" [routerLink]="'/'">
-                        <img src="assets/dog pictures/edit btn.svg" alt="" [routerLink]="'/'">
-                        <img src="assets/dog pictures/del dog btn.svg" alt="" [routerLink]="'/'">
-                    </div>
-                </div>
-                <!-- table card 7 -->
-                <div class="tc-container">
-                    <div class="tc-left">
-                        <img src="assets/dog pictures/dog-card-img.jpg" alt="">
-                    </div>
-                    <div class="tc-center">
-                        <div class="tc-name">
-                            <h2>Dog</h2>
-                        </div>
-                        <div class="tc-desc">
-                            <p>AGE: info info info</p>
-                            <p>GENDER: info info info</p>
-                            <p>BREED: info info info</p>
-                        </div>
-                    </div>
-                    <div class="tc-right">
-                        <img src="assets/dog pictures/view btn.svg" alt="" [routerLink]="'/'">
-                        <img src="assets/dog pictures/edit btn.svg" alt="" [routerLink]="'/'">
-                        <img src="assets/dog pictures/del dog btn.svg" alt="" [routerLink]="'/'">
-                    </div>
-                </div>
+                
             </div>       
             
         </div>

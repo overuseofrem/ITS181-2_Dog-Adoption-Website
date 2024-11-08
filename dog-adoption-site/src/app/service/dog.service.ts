@@ -32,4 +32,10 @@ export class DogService {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 
+  uploadDogImage(id: number, imageFile: File): Observable<Dog> {
+    const formData = new FormData();
+    formData.append('image', imageFile, imageFile.name);
+    return this.http.post<Dog>(`${this.apiUrl}/${id}/upload-dog-image`, formData);
+  }
+
 }

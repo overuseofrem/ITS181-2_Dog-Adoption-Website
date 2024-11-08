@@ -28,6 +28,11 @@ export class AuthService {
     return this.http.post(`${this.apiUrl}/sign-in`, user, { withCredentials: true });
   }
 
+  // Login an admin user and create a session
+  loginAdmin(user: User): Observable<any> {
+    return this.http.post(`${this.apiUrl}/sign-in-admin`, user, { withCredentials: true });
+  }
+
   // Check if a session exists and retrieve user info
   getSession(): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/session/get`, { withCredentials: true }).pipe(

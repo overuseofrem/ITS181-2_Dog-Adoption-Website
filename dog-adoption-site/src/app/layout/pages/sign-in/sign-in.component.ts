@@ -8,7 +8,7 @@ import { User } from '../../../model/user.model';
 @Component({
   selector: 'app-sign-in',
   standalone: true,
-  imports: [FormsModule, RouterModule, NgIf],
+  imports: [FormsModule, RouterModule],
   templateUrl: './sign-in.component.html',
   styleUrl: './sign-in.component.css'
 })

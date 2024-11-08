@@ -6,10 +6,10 @@
 
             <div class="footer-links">
                 <h3 class="footer-header">QUICK LINKS</h3>
-                <a href="/adoptable-dogs" class="footer-link-item">ADOPT DOGS</a>
-                <a href="/contact" class="footer-link-item">CONTACT US</a>
-                <a href="/account" class="footer-link-item">MY ACCOUNT</a>
-                <a href="/sign-in-admin" class="footer-link-item">ADMIN</a>
+                <a [routerLink]="'/adoptable-dogs'" class="footer-link-item">ADOPT DOGS</a>
+                <a [routerLink]="'/contact'" class="footer-link-item">CONTACT US</a>
+                <a [routerLink]="getAccountRoute()" class="footer-link-item">MY ACCOUNT</a>
+                <a [routerLink]="'/sign-in-admin'" class="footer-link-item">ADMIN</a>
             </div>
             <div class="footer-links">
                 <h3 class="footer-header">DEVELOPERS</h3>
