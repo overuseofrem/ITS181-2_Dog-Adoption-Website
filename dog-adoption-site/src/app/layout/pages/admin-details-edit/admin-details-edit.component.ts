@@ -73,7 +73,7 @@ export class AdminDetailsEditComponent implements OnInit {
         alert('User updated successfully');
       },
       error => {
-        alert('Error updating user: ' + error);
+        alert('ERROR: Error updating user: ' + error);
       }
     );
   }

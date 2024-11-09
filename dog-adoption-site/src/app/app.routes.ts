@@ -21,6 +21,7 @@ import { AdminDogEditComponent } from './layout/pages/admin-dog-edit/admin-dog-e
 import { AdminDogAddComponent } from './layout/pages/admin-dog-add/admin-dog-add.component';
 import { AdminAddComponent } from './layout/pages/admin-add/admin-add.component';
 import { SignInAdminComponent } from './layout/pages/sign-in-admin/sign-in-admin.component';
+import { AdminAdoptionEditComponent } from './layout/pages/admin-adoption-edit/admin-adoption-edit.component';
 
 export const routes: Routes = [
     { path: '', component: HomepageComponent, title: 'Homepage' },
@@ -47,4 +48,5 @@ export const routes: Routes = [
     { path: 'admin/dogs/add', component: AdminDogAddComponent, title: 'Create New Dog'},
     { path: 'admin/adoptions', component:AdminAdoptionsComponent, title: 'Manage Adoptions'},
     { path: 'admin/adoptions/view/:id', component: AdminAdoptionViewComponent, title: 'Manage Adoption Application'},
+    { path: 'admin/adoptions/edit/:id', component: AdminAdoptionEditComponent, title: 'Manage Adoption Application'},
 ];

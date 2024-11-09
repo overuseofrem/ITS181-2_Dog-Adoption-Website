@@ -87,7 +87,7 @@ export class AdminDogEditComponent implements OnInit {
         alert('Dog updated successfully');
       },
       error => {
-        alert('ERROR: Error updating country: ' + error);
+        alert('ERROR: Error updating dog: ' + error);
       }
     );
   }

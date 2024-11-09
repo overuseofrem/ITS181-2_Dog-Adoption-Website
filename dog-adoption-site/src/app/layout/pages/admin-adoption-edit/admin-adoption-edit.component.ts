@@ -1,22 +1,21 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { AdoptionService } from '../../../service/adoption.service';
+import { Component, inject } from '@angular/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
-import { AuthService } from '../../../service/auth.service';
-import { User } from '../../../model/user.model';
-import { DogService } from '../../../service/dog.service';
-import { Dog } from '../../../model/dog.model';
 import { Adoption } from '../../../model/adoption.model';
+import { User } from '../../../model/user.model';
+import { AdoptionService } from '../../../service/adoption.service';
+import { AuthService } from '../../../service/auth.service';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-admin-adoption-view',
+  selector: 'app-admin-adoption-edit',
   standalone: true,
-  imports: [CommonModule, RouterModule],
-  templateUrl: './admin-adoption-view.component.html',
-  styleUrl: './admin-adoption-view.component.css'
+  imports: [RouterModule, CommonModule, FormsModule],
+  templateUrl: './admin-adoption-edit.component.html',
+  styleUrl: './admin-adoption-edit.component.css'
 })
-export class AdminAdoptionViewComponent implements OnInit{
-
+export class AdminAdoptionEditComponent {
+  
   user: User = new User();
   adoption: Adoption = new Adoption();
 
@@ -54,6 +53,17 @@ export class AdminAdoptionViewComponent implements OnInit{
         );
       }
     });
+  }
+
+  updateAdoption(): void{
+    this.adoptionService.updateAdoption(this.adoption.id, this.adoption).subscribe(
+      response => {
+        alert('Adoption updated successfully');
+      },
+      error => {
+        alert('ERROR: Error updating adoption: ' + error);
+      }
+    )
   }
 
 }

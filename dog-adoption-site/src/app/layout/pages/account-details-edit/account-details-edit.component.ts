@@ -57,7 +57,6 @@ export class AccountDetailsEditComponent implements OnInit {
         this.user.img = response.img;
       },
       (error) => {
-        console.error("Error uploading image:", error);
         alert("ERROR: Failed to upload image.");
       }
     );
@@ -74,7 +73,7 @@ export class AccountDetailsEditComponent implements OnInit {
         alert('User updated successfully');
       },
       error => {
-        alert('Error updating user: ' + error);
+        alert('ERROR: Error updating user: ' + error);
       }
     );
   }
