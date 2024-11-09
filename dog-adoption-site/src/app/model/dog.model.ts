@@ -5,6 +5,6 @@ export class Dog {
     gender?: string 
     vacc?: boolean
     ster?: boolean
-    description: string = ""
+    description?: string
     img?: string 
 }

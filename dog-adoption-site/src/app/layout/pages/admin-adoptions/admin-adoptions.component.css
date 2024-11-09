@@ -187,3 +187,11 @@
     margin-bottom: 0.5rem;
     cursor: pointer;
 }
+
+.no-dogs-message {
+    text-align: center;
+    color: gray;
+    font-style: italic;
+    font-size: 20px;
+    font-weight: 500;
+}

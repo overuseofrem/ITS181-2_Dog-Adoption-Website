@@ -44,7 +44,6 @@ export class AdminAddComponent implements OnInit {
       this.authService.register(this.user).subscribe(
         response => {
           alert(response.message);
-          this.router.navigate(['/sign-in-admin']);
         },
         error => {
           const errorMsg = error?.error?.message || 'ERROR: An unknown error occurred';

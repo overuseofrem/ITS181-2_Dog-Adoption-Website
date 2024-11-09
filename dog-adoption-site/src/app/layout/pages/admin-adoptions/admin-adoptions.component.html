@@ -40,141 +40,34 @@
             </div>
 
             <div class="table-container">
+                <!-- no adoptions message -->
+                <span *ngIf="adoptions.length === 0" class="no-dogs-message">
+                    <p>No adoption applications found in the database.</p>
+                </span>
+            
                 <!-- table card 1 -->
-                <div class="tc-container">
+                <div class="tc-container" *ngFor="let adoption of adoptions">
                     <div class="tc-left">
-                        <img src="assets/dog pictures/314f34.png" alt="">
+                        <!-- Assuming the user profile image is stored based on user ID -->
+                        <img [src]="'http://localhost:18080/uploads/' + adoption.user?.id + '.jpg'" alt="User Profile Image">
                     </div>
                     <div class="tc-center">
                         <div class="tc-name">
-                            <h2>Muffin man Muffin man Muffin man</h2>
+                            <h2>{{ adoption.user?.name }}</h2> <!-- Displaying the User's Name -->
                         </div>
                         <div class="tc-desc">
-                            <p>Datetime: info info info</p>
-                            <p>Status: info info info</p>
+                            <p>Dog: {{ adoption.dog?.name }}</p> <!-- Displaying the Dog's Name -->
+                            <p>Datetime: {{ adoption.datetime | date:'short' }}</p> <!-- Formatting Date -->
+                            <p>Status: {{ adoption.status }}</p>
                         </div>
                     </div>
                     <div class="tc-right">
-                        <img src="assets/dog pictures/view btn.svg" alt="" [routerLink]="'/'">
-                        <img src="assets/dog pictures/edit btn.svg" alt="" [routerLink]="'/'">
+                        <img src="assets/dog pictures/view btn.svg" alt="View" [routerLink]="['/admin/adoptions/view', adoption.id]">
+                        <img src="assets/dog pictures/edit btn.svg" alt="Edit" [routerLink]="['/admin/adoptions/edit', adoption.id]">
                     </div>
                 </div>
-                <!-- table card 2 -->
-                <div class="tc-container">
-                    <div class="tc-left">
-                        <img src="assets/dog pictures/314f34.png" alt="">
-                    </div>
-                    <div class="tc-center">
-                        <div class="tc-name">
-                            <h2>Muffin man Muffin man Muffin man</h2>
-                        </div>
-                        <div class="tc-desc">
-                            <p>Datetime: info info info</p>
-                            <p>Status: info info info</p>
-                        </div>
-                    </div>
-                    <div class="tc-right">
-                        <img src="assets/dog pictures/view btn.svg" alt="" [routerLink]="'/'">
-                        <img src="assets/dog pictures/edit btn.svg" alt="" [routerLink]="'/'">
-                    </div>
-                </div>
-                <!-- table card 3 -->
-                <div class="tc-container">
-                    <div class="tc-left">
-                        <img src="assets/dog pictures/314f34.png" alt="">
-                    </div>
-                    <div class="tc-center">
-                        <div class="tc-name">
-                            <h2>Muffin man Muffin man Muffin man</h2>
-                        </div>
-                        <div class="tc-desc">
-                            <p>Datetime: info info info</p>
-                            <p>Status: info info info</p>
-                        </div>
-                    </div>
-                    <div class="tc-right">
-                        <img src="assets/dog pictures/view btn.svg" alt="" [routerLink]="'/'">
-                        <img src="assets/dog pictures/edit btn.svg" alt="" [routerLink]="'/'">
-                    </div>
-                </div>
-                <!-- table card 4 -->
-                <div class="tc-container">
-                    <div class="tc-left">
-                        <img src="assets/dog pictures/314f34.png" alt="">
-                    </div>
-                    <div class="tc-center">
-                        <div class="tc-name">
-                            <h2>Muffin man Muffin man Muffin man</h2>
-                        </div>
-                        <div class="tc-desc">
-                            <p>Datetime: info info info</p>
-                            <p>Status: info info info</p>
-                        </div>
-                    </div>
-                    <div class="tc-right">
-                        <img src="assets/dog pictures/view btn.svg" alt="" [routerLink]="'/'">
-                        <img src="assets/dog pictures/edit btn.svg" alt="" [routerLink]="'/'">
-                    </div>
-                </div>
-                <!-- table card 5 -->
-                <div class="tc-container">
-                    <div class="tc-left">
-                        <img src="assets/dog pictures/314f34.png" alt="">
-                    </div>
-                    <div class="tc-center">
-                        <div class="tc-name">
-                            <h2>Muffin man Muffin man Muffin man</h2>
-                        </div>
-                        <div class="tc-desc">
-                            <p>Datetime: info info info</p>
-                            <p>Status: info info info</p>
-                        </div>
-                    </div>
-                    <div class="tc-right">
-                        <img src="assets/dog pictures/view btn.svg" alt="" [routerLink]="'/'">
-                        <img src="assets/dog pictures/edit btn.svg" alt="" [routerLink]="'/'">
-                    </div>
-                </div>
-                <!-- table card 6 -->
-                <div class="tc-container">
-                    <div class="tc-left">
-                        <img src="assets/dog pictures/314f34.png" alt="">
-                    </div>
-                    <div class="tc-center">
-                        <div class="tc-name">
-                            <h2>Muffin man Muffin man Muffin man</h2>
-                        </div>
-                        <div class="tc-desc">
-                            <p>Datetime: info info info</p>
-                            <p>Status: info info info</p>
-                        </div>
-                    </div>
-                    <div class="tc-right">
-                        <img src="assets/dog pictures/view btn.svg" alt="" [routerLink]="'/'">
-                        <img src="assets/dog pictures/edit btn.svg" alt="" [routerLink]="'/'">
-                    </div>
-                </div>
-                <!-- table card 7 -->
-                <div class="tc-container">
-                    <div class="tc-left">
-                        <img src="assets/dog pictures/314f34.png" alt="">
-                    </div>
-                    <div class="tc-center">
-                        <div class="tc-name">
-                            <h2>Muffin man Muffin man Muffin man</h2>
-                        </div>
-                        <div class="tc-desc">
-                            <p>Datetime: info info info</p>
-                            <p>Status: info info info</p>
-                        </div>
-                    </div>
-                    <div class="tc-right">
-                        <img src="assets/dog pictures/view btn.svg" alt="" [routerLink]="'/'">
-                        <img src="assets/dog pictures/edit btn.svg" alt="" [routerLink]="'/'">
-                    </div>
-                </div>
-                
-            </div>       
+            </div>
+                   
             
         </div>
 
