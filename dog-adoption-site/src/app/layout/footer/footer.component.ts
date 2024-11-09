@@ -34,5 +34,16 @@ export class FooterComponent implements OnInit {
     }
     return '/sign-in';
   }
+
+  getAccountRouteAdmin(): string {
+    if (!this.isAuthenticated) {
+      return '/sign-in-admin';
+    } else if (this.userRole === 'USER') {
+      return '/account';
+    } else if (this.userRole === 'ADMIN') {
+      return '/admin';
+    }
+    return '/sign-in-admin';
+  }
   
 }

@@ -2,7 +2,6 @@ import { Component, inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { User } from '../../../model/user.model';
 import { AuthService } from '../../../service/auth.service';
-import { AdoptableDogsComponent } from '../adoptable-dogs/adoptable-dogs.component';
 import { AdoptionService } from '../../../service/adoption.service';
 import { Adoption } from '../../../model/adoption.model';
 import { CommonModule } from '@angular/common';

@@ -9,29 +9,34 @@
         <div class="main-content">
     
             <div class="main-header">
-                <div class="head-img-container"></div>
-                <div class="name">USERWHOWANTS</div>
-                        <div class="info-text-item">ADOPTION SUBMISSION INFO HERE</div>
-                        <div class="info-text-item">####</div>
-                        <div class="info-text-item">###</div>
-                        <div class="info-text-item">####</div>
-                        <div class="info-text-item">###</div>
-                        <div class="info-text-item">###</div>
-                        <div class="info-text-item">STATUS: ???</div>
+                <div class="head-img-container">
+                    <img [src]="'http://localhost:18080/uploads/' + adoption.user?.img" alt="" class="head-img-circle">
+                </div>
+                <div class="name">{{adoption.user?.name}}</div>
+                        <div class="info-text-item">EMAIL: {{adoption.user?.username}}</div>
+                        <div class="info-text-item">CONTACT NUMBER: {{adoption.user?.contact}}</div>
+                        <div class="info-text-item">ADDRESS: {{adoption.user?.address}}</div>
+                        <div class="info-text-item">DATE SUBMITTED: {{ adoption.datetime | date:'short' }}</div>
+                        <div class="info-text-item">STATUS: {{adoption.status}}</div>
             </div>
     
             <div class="main-header">
-                <div class="head-img"><img src="assets\dog pictures\dog-card-img.jpg" alt="" class="head-img"></div>
-                <div class="name">HAM SANDWICH</div>
+                <div class="head-img">
+                    <img [src]="'http://localhost:18080/uploads-dogs/' + adoption.dog?.img" alt="" class="head-img">
+                </div>
+                <div class="name">{{adoption.dog?.name}}</div>
                 <div class="info-text-item">
-                    4 years old, Male, Lab mix
+                    {{adoption.dog?.age}} years old, {{adoption.dog?.gender}}
+                    <br>
+                    {{adoption.dog?.vacc ? 'Vaccinated' : 'Unvaccinated' }}, 
+                    {{adoption.dog?.ster ? 'Sterilized' : 'Unsterilized' }}
                     <br>
                     <br>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vestibulum risus in eros mattis, eget mollis est tristique. Donec sed lorem quam. In tellus lorem, pellentesque et interdum sed, elementum a augue.
+                    {{adoption.dog?.description}}
                 </div>
             </div>
     
-            <a href="" class="dog-profile-btn">
+            <a [routerLink]="['/admin/adoptions/edit', adoption.id]" class="dog-profile-btn">
                 <img src="assets/dog pictures/edit btn.svg" alt="">
             </a>
 

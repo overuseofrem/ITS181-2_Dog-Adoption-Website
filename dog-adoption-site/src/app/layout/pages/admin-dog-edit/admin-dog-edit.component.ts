@@ -38,7 +38,10 @@ export class AdminDogEditComponent implements OnInit {
       }
     );
 
-    //get data
+    this.getDogData();
+  }
+
+  getDogData(): void{
     this.route.params.subscribe(params => {
       const id = params['id'];
       if (id) {
@@ -47,7 +50,7 @@ export class AdminDogEditComponent implements OnInit {
             this.dog = data;
           },
           error => {
-            alert('ERROR: Error fetching country details: ' + error);
+            alert('ERROR: Error fetching dog details: ' + error);
           }
         );
       }

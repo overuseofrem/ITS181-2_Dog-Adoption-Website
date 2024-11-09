@@ -49,15 +49,15 @@
                 <div class="tc-container" *ngFor="let adoption of adoptions">
                     <div class="tc-left">
                         <!-- Assuming the user profile image is stored based on user ID -->
-                        <img [src]="'http://localhost:18080/uploads/' + adoption.user?.id + '.jpg'" alt="User Profile Image">
+                        <img [src]="'http://localhost:18080/uploads/' + adoption.user?.img " alt="User Profile Image">
                     </div>
                     <div class="tc-center">
                         <div class="tc-name">
-                            <h2>{{ adoption.user?.name }}</h2> <!-- Displaying the User's Name -->
+                            <h2>{{ adoption.user?.name }}</h2> 
                         </div>
                         <div class="tc-desc">
-                            <p>Dog: {{ adoption.dog?.name }}</p> <!-- Displaying the Dog's Name -->
-                            <p>Datetime: {{ adoption.datetime | date:'short' }}</p> <!-- Formatting Date -->
+                            <p>Dog: {{ adoption.dog?.name }}</p> 
+                            <p>Datetime: {{ adoption.datetime | date:'short' }}</p> 
                             <p>Status: {{ adoption.status }}</p>
                         </div>
                     </div>
