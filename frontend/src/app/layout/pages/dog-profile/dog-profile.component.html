@@ -1,0 +1,39 @@
+<div class="main-wrapper">
+
+    <div class="top-paws">
+        <img src="assets/dog pictures/multiple-paws.png" alt="" class="mult-paws">
+    </div>
+
+    <div class="main-container">
+
+        <div class="main-content">
+
+            <div class="main-header">
+                <img [src]="'http://localhost:18080/uploads-dogs/' + dog.img" alt="" class="profile-img">
+            </div>
+
+            <h1 class="dog-name">{{dog.name}}</h1>
+            <h3 class="dog-details">
+                {{dog.age}} years old, 
+                {{dog.gender}}, 
+                {{ dog.vacc ? 'Vaccinated' : 'Unvaccinated' }}, 
+                {{ dog.ster ? 'Sterilized' : 'Unsterilized' }}
+            </h3>
+
+            <p class="gen-text-body">
+                {{dog.description}}
+            </p>
+
+            <div *ngIf="!adoptionExists">
+                <a (click)="checkSession()" class="btn">ADOPT {{dog.name}}!</a>
+            </div>
+
+            <div *ngIf="adoptionExists">
+                <a (click)="deleteAdoption()" class="btn">CANCEL ADOPTION</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

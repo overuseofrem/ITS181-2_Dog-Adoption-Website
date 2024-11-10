@@ -1,0 +1,75 @@
+<div class="main-wrapper">
+
+    <div class="top-paws">
+        <img src="assets/dog pictures/multiple-paws.png" alt="" class="mult-paws">
+    </div>
+
+    <div class="main-container">
+
+        <div class="account-content">
+
+            <div class="account-header">
+                <div class="account-title">
+                    <h1>Welcome, Admin {{nickname}}!</h1>
+                </div>
+                <img [src]="'http://localhost:18080/uploads/' + user.img" alt="" class="head-img">
+            </div>
+
+            <div class="account-buttons">
+                <div class="account-buttons-left">
+                    <button class="btn-changeaccount" [routerLink]="['/admin/details', user.id]">ACCOUNT DETAILS</button>
+                    <button class="btn-changeaccount" [routerLink]="'/admin/add'">CREATE NEW ADMIN</button>
+                </div>
+                <p class="gen-text-body" (click)="logout()">SIGN OUT</p>                    
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="separator-paws">
+        <img src="assets/dog pictures/multiple-paws.png" alt="" class="mult-paws">
+    </div>
+
+    <div class="main-container-adoptions">
+
+        <div class="main-content">
+
+            <div class="main-header">
+                <h1 class="main-title">ADOPTIONS</h1>
+            </div>
+
+            <div class="table-container">
+                <!-- no adoptions message -->
+                <span *ngIf="adoptions.length === 0" class="no-dogs-message">
+                    <p>No adoption applications found in the database.</p>
+                </span>
+            
+                <!-- table card 1 -->
+                <div class="tc-container" *ngFor="let adoption of adoptions">
+                    <div class="tc-left">
+                        <img [src]="'http://localhost:18080/uploads/' + adoption.user?.img " alt="User Profile Image">
+                    </div>
+                    <div class="tc-center">
+                        <div class="tc-name">
+                            <h2>{{ adoption.user?.name }}</h2> 
+                        </div>
+                        <div class="tc-desc">
+                            <p>Dog: {{ adoption.dog?.name }}</p> 
+                            <p>Datetime: {{ adoption.datetime | date:'short' }}</p> 
+                            <p>Status: {{ adoption.status }}</p>
+                        </div>
+                    </div>
+                    <div class="tc-right">
+                        <img src="assets/dog pictures/view btn.svg" alt="View" [routerLink]="['/admin/adoptions/view', adoption.id]">
+                        <img src="assets/dog pictures/edit btn.svg" alt="Edit" [routerLink]="['/admin/adoptions/edit', adoption.id]">
+                    </div>
+                </div>
+            </div>
+                   
+            
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,57 @@
+<div class ="main-wrapper">
+    
+    <div class="top-paws">
+        <img src="assets/dog pictures/multiple-paws.png" alt="" class="mult-paws">
+    </div>
+
+    <div class="main-container">
+
+        <div class="main-content">
+
+            <div class="main-header">
+                <div class="head-img-container">
+                    <img src="assets/dog pictures/cute-collie.png" alt="" class="main-title-img">
+                </div>
+                <h1 class="main-title">THANK YOU FOR ADOPTING!</h1>
+            </div>
+
+            <p class="gen-text-body">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vestibulum risus in eros mattis, eget mollis est tristique. Donec sed lorem quam.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="separator-paws">
+        <img src="assets/dog pictures/multiple-paws.png" alt="" class="mult-paws">
+    </div>
+
+    <!-- no adoptions message -->
+    <div *ngIf="adoptions.length === 0">
+        <div class="main-container" style="text-align: center; padding: 1rem;">
+            <h2>No adoption applications found in the database.</h2>
+        </div>
+        <div class="empty-container-bottom-account">
+            <button class="btn" [routerLink]="'/adoptable-dogs'">ADOPT NOW!</button>
+        </div>
+    </div>
+
+    <!-- with adoptions message -->
+    <div *ngIf="adoptions.length > 0">
+        <div class="main-container-dog" *ngFor="let adoption of adoptions">
+            <div class="imgdogcard-content">
+                <img [src]="'http://localhost:18080/uploads-dogs/' + adoption.dog?.img " alt="Dog Profile Image">
+            </div>
+            <div class="detaildogcard-content">
+                <h2 class="gen-text-body-dogcard-head"><b>{{adoption.dog?.name}}</b></h2>
+                <p class="gen-text-body-dogcard">AGE: {{adoption.dog?.age}} years old</p>
+                <p class="gen-text-body-dogcard">GENDER: {{adoption.dog?.age}}</p>
+                <p class="gen-text-body-dogcard">DATE SUBMITTED: {{adoption.datetime | date: 'short'}}</p>
+                <p class="gen-text-body-dogcard">STATUS: {{adoption.status}}</p>
+                <img src="assets/dog pictures/view profile btn.svg" alt="" class="dog-profile-btn" [routerLink]="['/dog-profile', adoption.dog?.id]">
+            </div>
+        </div>
+    </div>
+
+</div>
