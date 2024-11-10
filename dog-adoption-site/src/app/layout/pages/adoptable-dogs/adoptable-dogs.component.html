@@ -29,13 +29,13 @@
         <img src="assets/dog pictures/multiple-paws.png" alt="" class="mult-paws">
     </div>
 
-    <div class="main-container" *ngIf="dogs.length === 0" style="text-align: center;">
+    <div class="main-container" style="text-align: center;" *ngIf="dogs.length === 0" >
         <h2>There are no dogs available for adoption.</h2>
         <p style="font-size: var(--text-body-size)">Come back later!</p>
         <br><br>
     </div>
 
-    <div class="grid-container">
+    <div class="grid-container" *ngIf="dogs.length > 0">
         <app-dog-card *ngFor="let dog of dogs" [dog]="dog"></app-dog-card>
     </div>
 

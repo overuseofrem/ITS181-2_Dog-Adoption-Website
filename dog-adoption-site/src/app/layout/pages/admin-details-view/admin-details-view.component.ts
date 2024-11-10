@@ -21,7 +21,7 @@ export class AdminDetailsViewComponent {
   private router = inject(Router);
 
   ngOnInit(): void {
-    this.authService.checkUserSession("ADMIN").subscribe(
+    this.authService.checkAdminSession("ADMIN").subscribe(
       user => {
         if (user && user.name) {
           this.user = user;

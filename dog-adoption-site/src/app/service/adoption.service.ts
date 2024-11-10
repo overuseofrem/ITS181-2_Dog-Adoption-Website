@@ -33,10 +33,15 @@ export class AdoptionService {
   }
 
   updateAdoption(id: number, adoption: Adoption): Observable<Adoption> {
-    return this.http.put<Adoption>(`${this.baseUrl}/${id}`, { adoption });
+    return this.http.put<Adoption>(`${this.baseUrl}/${id}`, adoption);
   }
 
   deleteAdoption(id: number): Observable<void> {
     return this.http.delete<void>(`${this.baseUrl}/${id}`);
   }
+
+  deleteAdoptionByUserAndDog(userId: number, dogId: number): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl}/user/${userId}/dog/${dogId}`);
+  }
+  
 }

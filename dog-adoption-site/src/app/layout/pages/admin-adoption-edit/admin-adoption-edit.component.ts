@@ -25,18 +25,17 @@ export class AdminAdoptionEditComponent {
   private router = inject(Router);
     
   ngOnInit(): void {
-    this.authService.checkUserSession("ADMIN").subscribe(
+    this.authService.checkAdminSession("ADMIN").subscribe(
       user => {
         if (user && user.name) {
           this.user = user;
+          this.getAdoptionData();
         } else {
           alert('ERROR: Unauthorized access');
           this.router.navigate(['/sign-in-admin']);
         }
       }
-    );
-
-    this.getAdoptionData();
+    );    
   }
 
   getAdoptionData(): void{
@@ -56,6 +55,7 @@ export class AdminAdoptionEditComponent {
   }
 
   updateAdoption(): void{
+    console.log(this.adoption);
     this.adoptionService.updateAdoption(this.adoption.id, this.adoption).subscribe(
       response => {
         alert('Adoption updated successfully');

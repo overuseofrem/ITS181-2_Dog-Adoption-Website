@@ -26,7 +26,7 @@ export class AdminDogViewComponent {
 
   ngOnInit(): void {
     // session
-    this.authService.checkUserSession("ADMIN").subscribe(
+    this.authService.checkAdminSession("ADMIN").subscribe(
       user => {
         if (user && user.name) {
           this.user = user;

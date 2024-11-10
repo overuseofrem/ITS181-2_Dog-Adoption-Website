@@ -22,10 +22,10 @@
                 
                 <form (ngSubmit)="updateAdoption()" #adoptionForm="ngForm" class="info-text-item">
                     STATUS:
-                    <select name="status" id="status">
-                        <option value="Pending" [(ngModel)]="adoption.status">Pending</option>
-                        <option value="Accepted" [(ngModel)]="adoption.status">Accepted</option>
-                        <option value="Rejected" [(ngModel)]="adoption.status">Rejected</option>
+                    <select name="status" id="status" [(ngModel)]="adoption.status">
+                        <option value="Pending">Pending</option>
+                        <option value="Accepted">Accepted</option>
+                        <option value="Rejected">Rejected</option>
                     </select>
                     <button type="submit" class="dog-profile-btn"><img src="assets/dog pictures/check btn.svg" alt=""></button>
                     <button type="reset" class="dog-profile-btn-other"><img src="assets/dog pictures/del dog btn.svg" alt=""></button>

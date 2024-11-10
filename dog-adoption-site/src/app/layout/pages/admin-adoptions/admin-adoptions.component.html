@@ -48,7 +48,6 @@
                 <!-- table card 1 -->
                 <div class="tc-container" *ngFor="let adoption of adoptions">
                     <div class="tc-left">
-                        <!-- Assuming the user profile image is stored based on user ID -->
                         <img [src]="'http://localhost:18080/uploads/' + adoption.user?.img " alt="User Profile Image">
                     </div>
                     <div class="tc-center">

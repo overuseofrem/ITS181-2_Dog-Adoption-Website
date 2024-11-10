@@ -24,7 +24,13 @@
                 {{dog.description}}
             </p>
 
-            <a (click)="checkSession()" class="btn">ADOPT HAM SANDIWCH!</a>
+            <div *ngIf="!adoptionExists">
+                <a (click)="checkSession()" class="btn">ADOPT {{dog.name}}!</a>
+            </div>
+
+            <div *ngIf="adoptionExists">
+                <a (click)="deleteAdoption()" class="btn">CANCEL ADOPTION</a>
+            </div>
 
         </div>
 

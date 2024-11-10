@@ -26,7 +26,7 @@ export class AdminDetailsEditComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.authService.checkUserSession("ADMIN").subscribe(
+    this.authService.checkAdminSession("ADMIN").subscribe(
       user => {
         if (user && user.name) {
           this.user = user;

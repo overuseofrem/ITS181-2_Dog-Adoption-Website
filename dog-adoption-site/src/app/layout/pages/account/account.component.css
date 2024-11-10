@@ -16,7 +16,8 @@
     margin-block: 2rem;
 }
 
-.main-container {
+.main-container,
+.main-container-dog {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -103,11 +104,11 @@
 
  /* DOG CARD STYLES */
 
-.dogcard-container {
-    display: flex;
-    background-color: var(--container-bg-color);
-    border-radius: var(--border-radius);
-    position: relative;
+ .main-container-dog {
+    flex-direction: row;
+    padding: 0;
+    width: 100% !important; 
+    margin-bottom: 3rem !important;
 }
 
 .imgdogcard-content {
@@ -118,14 +119,16 @@
 }
 
 .imgdogcard-content img{
+    width: 20rem;
+    height: 20rem;
     border-radius: var(--border-radius);
     object-fit: cover;
 }
 
 .detaildogcard-content {
-    width: 20rem;
-    height: 20rem;
+    padding: 0 2rem;
 }
+
 .gen-text-body-dogcard-head {
     font-size: var(--gen-link-size);
     font-weight: var(--header-link-weight);

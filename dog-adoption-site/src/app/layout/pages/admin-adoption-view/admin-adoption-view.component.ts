@@ -26,18 +26,17 @@ export class AdminAdoptionViewComponent implements OnInit{
   private router = inject(Router);
     
   ngOnInit(): void {
-    this.authService.checkUserSession("ADMIN").subscribe(
+    this.authService.checkAdminSession("ADMIN").subscribe(
       user => {
         if (user && user.name) {
           this.user = user;
+          this.getAdoptionData();
         } else {
           alert('ERROR: Unauthorized access');
           this.router.navigate(['/sign-in-admin']);
         }
       }
-    );
-
-    this.getAdoptionData();
+    );    
   }
 
   getAdoptionData(): void{

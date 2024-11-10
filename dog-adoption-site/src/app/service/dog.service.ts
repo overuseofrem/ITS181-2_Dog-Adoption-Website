@@ -20,12 +20,12 @@ export class DogService {
     return this.http.get<Dog>(`${this.apiUrl}/${id}`);
   }
 
-  addDog(Dog: Dog): Observable<Dog> {
-    return this.http.post<Dog>(this.apiUrl, Dog);
+  addDog(dog: Dog): Observable<Dog> {
+    return this.http.post<Dog>(this.apiUrl, dog);
   }
 
-  updateDog(id: number, Dog: Dog): Observable<Dog> {
-    return this.http.put<Dog>(`${this.apiUrl}/${id}`, Dog);
+  updateDog(id: number, dog: Dog): Observable<Dog> {
+    return this.http.put<Dog>(`${this.apiUrl}/${id}`, dog);
   }
 
   deleteDog(id: number): Observable<void> {

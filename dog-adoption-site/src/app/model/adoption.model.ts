@@ -3,7 +3,7 @@ import { User } from "./user.model";
 
 export class Adoption {
     id: number = 0;
-    status: string = "";
+    status?: string
     datetime: Date = new Date();
     
     user?: User;

@@ -17,7 +17,7 @@ export class AdminAdoptionsComponent {
   user: User = new User();
   nickname: string = "Admin";
 
-  adoptions: Adoption[] = []; // Array to store adoption records
+  adoptions: Adoption[] = []; 
 
   private authService = inject(AuthService);
   private adoptionService = inject(AdoptionService);
@@ -25,7 +25,7 @@ export class AdminAdoptionsComponent {
   private router = inject(Router);
 
   ngOnInit(): void {
-    this.authService.checkUserSession("ADMIN").subscribe(
+    this.authService.checkAdminSession("ADMIN").subscribe(
       user => {
         if (user && user.name) {
           this.user = user;

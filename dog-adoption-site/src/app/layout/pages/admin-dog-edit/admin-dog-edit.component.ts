@@ -27,7 +27,7 @@ export class AdminDogEditComponent implements OnInit {
 
   ngOnInit(): void {
     //session
-    this.authService.checkUserSession("ADMIN").subscribe(
+    this.authService.checkAdminSession("ADMIN").subscribe(
       user => {
         if (user && user.name) {
           this.user = user;
