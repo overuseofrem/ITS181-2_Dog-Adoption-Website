@@ -24,7 +24,7 @@ import { SignInAdminComponent } from './layout/pages/sign-in-admin/sign-in-admin
 import { AdminAdoptionEditComponent } from './layout/pages/admin-adoption-edit/admin-adoption-edit.component';
 
 export const routes: Routes = [
-    { path: '', component: HomepageComponent, title: 'Homepage' },
+    { path: '', component: HomepageComponent, title: 'Doggo Forever - Dog Adoption Center' },
     { path: 'contact', component: ContactComponent,  title: 'Contact' },
     { path: 'about-us', component: AboutUsComponent,  title: 'About Us' },
     { path: 'adoptable-dogs', component: AdoptableDogsComponent,  title: 'Adoptable Dogs' },
