@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AdminDogFormComponent } from './admin-dog-form.component';
+import { AdminDogViewComponent } from './admin-dog-view.component';
 
-describe('AdminDogFormComponent', () => {
-  let component: AdminDogFormComponent;
-  let fixture: ComponentFixture<AdminDogFormComponent>;
+describe('AdminDogViewComponent', () => {
+  let component: AdminDogViewComponent;
+  let fixture: ComponentFixture<AdminDogViewComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AdminDogFormComponent]
+      imports: [AdminDogViewComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(AdminDogFormComponent);
+    fixture = TestBed.createComponent(AdminDogViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

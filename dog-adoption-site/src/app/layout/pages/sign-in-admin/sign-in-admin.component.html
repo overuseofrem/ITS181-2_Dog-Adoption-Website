@@ -1,0 +1,31 @@
+<div class="main-wrapper">
+
+    <div class="separator-paws">
+        <img src="assets/dog pictures/multiple-paws.png" alt="" class="mult-paws">
+    </div>
+
+    <div class="main-container">
+
+        <div class="main-content">
+
+            <div class="main-header">
+                <h1 class="main-title">WELCOME BACK, ADMIN!</h1>
+                <!-- <img src="assets/dog pictures/df-logo-circle.png" alt="" class="main-title-img"> -->
+
+                <div class="head-img-container">
+                    <img src="assets/dog pictures/df-logo-circle.png" alt="" class="main-title-img">
+                </div>
+            </div>
+
+            <form (ngSubmit)="loginAdmin()" class="admin-sign-in-form">
+                <input type="email" id="email" name="email" placeholder="Enter your email..." [(ngModel)]="user.username" required>
+                <input type="password" id="password" name="password" placeholder="Enter your password..." [(ngModel)]="user.password" required>
+                <button class="btn" type="submit">SIGN IN!</button>
+            </form>
+
+        </div>
+
+
+    </div>
+
+</div>

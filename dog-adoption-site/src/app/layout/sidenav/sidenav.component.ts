@@ -1,43 +1,40 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { OnInit } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
+import { User } from '../../model/user.model';
+import { AuthService } from '../../service/auth.service';
 
 @Component({
   selector: 'app-sidenav',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './sidenav.component.html',
   styleUrl: './sidenav.component.css'
 })
 export class SidenavComponent implements OnInit {
-  ngOnInit() {
-    this.setActiveLink();
-
-    const navLinks = document.querySelectorAll('.nav-link-item');
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.forEach(l => l.classList.remove('active'));
-        link.classList.add('active');
-      });
-    });
-
-    window.addEventListener('popstate', () => {
-      this.setActiveLink();
-    });
+  
+  isAuthenticated = false;
+  userRole: string | null = null;
+  private authService = inject(AuthService);
+  
+  ngOnInit(): void {
+    this.authService.isAuthenticated$.subscribe(
+      authStatus => this.isAuthenticated = authStatus
+    );
+    this.authService.userRole$.subscribe(
+      role => this.userRole = role
+    );
   }
 
-  setActiveLink() {
-    const currentPath = window.location.pathname;
-    const currentPage = currentPath.replace(/^\/|\/$/g, '') || 'home';
-    const navLinks = document.querySelectorAll('.nav-link-item');
-    
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      const href = (link as HTMLAnchorElement).getAttribute('href');
-      const page = href?.replace(/^\/|\/$/g, '') || 'home';
-      
-      if (page === currentPage) {
-        link.classList.add('active');
-      }
-    });
+  getAccountRoute(): string {
+    if (!this.isAuthenticated) {
+      return '/sign-in';
+    } else if (this.userRole === 'USER') {
+      return '/account';
+    } else if (this.userRole === 'ADMIN') {
+      return '/admin';
+    }
+    return '/sign-in';
   }
+  
 }

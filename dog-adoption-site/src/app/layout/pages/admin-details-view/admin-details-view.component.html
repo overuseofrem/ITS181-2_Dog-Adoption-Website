@@ -10,18 +10,18 @@
 
             <div class="main-header">
                 <div class="head-img-container">
-                    <img src="assets/dog pictures/314f34.png" alt="" class="head-img">
+                    <img [src]="'http://localhost:18080/uploads/' + user.img" alt="" class="head-img">
                 </div> 
             </div>
 
-            <form action="#" method="POST">
-                <input type="name" id="name" name="name" value="{{dummyName}}" disabled>
-                <input type="email" id="email" name="email" value="{{dummyEmail}}" disabled>
-                <input type="password" id="password" name="password" value="{{dummyPassword}}" disabled>
-                <button class="btn" [routerLink]="'/admin-details-edit'">EDIT ACCOUNT</button>
+            <form>
+                <input type="name" id="name" name="name" [(ngModel)]="user.name" disabled>
+                <input type="tel" id="contact" name="contact" pattern="[0-9]{11}" [(ngModel)]="user.contact" disabled>
+                <input type="text" id="address" name="address" [(ngModel)]="user.address" disabled>
+                <button class="btn" [routerLink]="['/admin/details/edit', user.id]">EDIT ACCOUNT</button>
             </form>
             
-            <button class="btn-other">DELETE ACCOUNT</button>
+            <button class="btn-other" (click)="deleteUser()">DELETE ACCOUNT</button>
 
         </div>
 

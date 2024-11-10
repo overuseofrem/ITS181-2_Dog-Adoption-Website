@@ -10,21 +10,27 @@
 
             <div class="main-header">
                 <div class="head-img-container">
-                    <img src="assets/dog pictures/314f34.png" alt="" class="head-img">
+                    <img [src]="'http://localhost:18080/uploads/' + user.img" alt="" class="head-img">
                 </div> 
             </div>
 
-            <form action="#" method="POST">
-                <input type="name" id="name" name="name" value="{{dummyName}}" placeholder="Enter your name..." required>
-                <input type="email" id="email" name="email" value="{{dummyEmail}}" placeholder="Enter your email..." required>
-                <input type="password" id="password" name="password" value="{{dummyPassword}}" placeholder="Enter your password..." required>
-                <input type="password" id="password_confirm" name="password_confirm" placeholder="Confirm password..." required>
-                <input type="tel" id="contact" name="contact" pattern="[0-9]{11}" value="{{dummyContact}}" placeholder="Enter phone number..." required
+            <form class="image-form" (ngSubmit)="uploadImage()" #imageForm="ngForm" enctype="multipart/form-data">
+                <div>
+                    <label for="file-upload" class="">UPLOAD IMAGE</label>
+                    <input id="file-upload" type="file" accept="image/*" (change)="onFileSelected($event)"/>
+                </div>
+                <button class="btn-image" type="submit">UPLOAD IMAGE</button>
+            </form>
+
+            <form (ngSubmit)="updateUser()" #userForm="ngForm">
+                <input type="name" id="name" name="name" [(ngModel)]="user.name" placeholder="Enter your name..." required>
+                <input type="tel" id="contact" name="contact" pattern="[0-9]{11}" [(ngModel)]="user.contact" placeholder="Enter phone number..." required
                     (focus)="onFocus()" (blur)="onBlur()">
-                <input type="text" id="address" name="address" value="{{dummyAddress}}" placeholder="Enter address..." required>
+                <input type="text" id="address" name="address" [(ngModel)]="user.address" placeholder="Enter address..." required>
                 <button class="btn" type="submit">SAVE CHANGES</button>
                 <button class="btn-other" type="reset">DISCARD</button>
             </form>
+
             
         </div>
 

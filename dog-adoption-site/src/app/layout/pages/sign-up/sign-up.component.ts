@@ -1,14 +1,44 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';  // For two-way binding with [(ngModel)]
+import { User } from '../../../model/user.model';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from '../../../service/auth.service';
 
 @Component({
   selector: 'app-sign-up',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, HttpClientModule, RouterModule, FormsModule],
   templateUrl: './sign-up.component.html',
-  styleUrl: './sign-up.component.css'
+  styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent {
+  user: User = new User();
+  password_confirm: string = "";
 
+  private authService = inject(AuthService);
+  private router = inject(Router);
+
+  addUser(): void {
+    if (this.password_confirm !== this.user.password) {
+      alert('ERROR: Passwords do not match');
+    } else {
+      this.user.role = "USER";
+      this.user.img = "default-user.png"
+      this.authService.register(this.user).subscribe(
+        response => {
+          alert(response.message);
+          this.router.navigate(['/sign-in']);
+        },
+        error => {
+          const errorMsg = error?.error?.message || 'ERROR: An unknown error occurred';
+          alert(errorMsg);
+        }
+      );
+    }
+  }
+  
   onFocus() {
     const input = document.getElementById('contact') as HTMLInputElement;
     input.placeholder = "09991234567";

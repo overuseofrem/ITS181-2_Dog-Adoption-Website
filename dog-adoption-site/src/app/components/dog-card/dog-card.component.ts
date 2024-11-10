@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
-import { Dog } from '../../model/dog';
+import { Component, Input } from '@angular/core';
+import { Dog } from '../../model/dog.model';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-dog-card',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './dog-card.component.html',
   styleUrl: './dog-card.component.css'
 })
-export class DogCardComponent { }
+export class DogCardComponent { 
+  @Input() dog!: Dog;
+}

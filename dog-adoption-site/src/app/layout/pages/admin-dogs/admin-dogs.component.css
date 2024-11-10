@@ -61,6 +61,7 @@
     border-radius: 100%;
     height: 10rem;
     width: 10rem;
+    object-fit: cover;
 }
 
 .account-title {
@@ -70,6 +71,7 @@
     margin: 0;
     padding: 1rem 3rem 1rem 2rem;
     border-radius: var(--border-radius);
+    max-width: 16rem;
 }
 
 .account-title h1 {
@@ -82,16 +84,22 @@
 
 .account-buttons {
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: space-between;
     width: 100%;
     padding: 0 2.5rem;
 }
 
+.account-buttons-left button{
+    margin-bottom: 1rem;
+}
+
 .gen-text-body {
     font-size: var(--gen-link-size);
+    width: 10rem;
     cursor: pointer;
     transition: 0.1s ease-out;
+    margin: 0;
 }
 
 .btn-changeaccount {
@@ -145,7 +153,7 @@
 
 .table-container {
     padding: 1rem;
-    height: 50rem;
+    max-height: 50rem;
     overflow: auto;
 }
 
@@ -188,4 +196,12 @@
     height: 3rem;
     margin-bottom: 0.5rem;
     cursor: pointer;
+}
+
+.no-dogs-message {
+    text-align: center;
+    color: gray;
+    font-style: italic;
+    font-size: 20px;
+    font-weight: 500;
 }

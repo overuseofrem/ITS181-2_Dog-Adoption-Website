@@ -9,17 +9,22 @@
         <div class="main-content">
 
             <div class="main-header">
-                <img src="assets/dog pictures/baptist-standaert-mx0DEnfYxic-unsplash.jpg" alt="" class="profile-img">
+                <img [src]="'http://localhost:18080/uploads-dogs/' + dog.img" alt="" class="profile-img">
             </div>
 
-            <h1 class="dog-name">HAM SANDWICH</h1>
-            <h3 class="dog-details">4 years old, Male, Vaccinated + Desexed</h3>
+            <h1 class="dog-name">{{dog.name}}</h1>
+            <h3 class="dog-details">
+                {{dog.age}} years old, 
+                {{dog.gender}}, 
+                {{ dog.vacc ? 'Vaccinated' : 'Unvaccinated' }},
+                {{ dog.ster ? 'Sterilized' : 'Unsterilized' }}
+            </h3>
 
             <p class="gen-text-body">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vestibulum risus in eros mattis, eget mollis est tristique. Donec sed lorem quam. In tellus lorem, pellentesque et interdum sed, elementum a augue. 
+                {{dog.description}}
             </p>
 
-            <a href="#" class="btn">ADOPT HAM SANDIWCH!</a>
+            <a (click)="checkSession()" class="btn">ADOPT HAM SANDIWCH!</a>
 
         </div>
 

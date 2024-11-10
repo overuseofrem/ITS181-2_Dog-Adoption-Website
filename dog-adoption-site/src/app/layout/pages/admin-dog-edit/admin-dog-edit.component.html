@@ -1,0 +1,75 @@
+<div class="main-wrapper">
+
+    <div class="separator-paws">
+        <img src="assets/dog pictures/multiple-paws.png" alt="" class="mult-paws">
+    </div>
+
+    <div class="main-container">
+
+        <div class="main-content">
+
+            <div class="main-header">
+              <img [src]="'http://localhost:18080/uploads-dogs/' + dog.img" alt="" class="head-img">
+            </div>
+
+            <form class="image-form" (ngSubmit)="uploadImage()" #imageForm="ngForm" enctype="multipart/form-data">
+              <div>
+                  <label for="file-upload" class="">UPLOAD IMAGE</label>
+                  <input id="file-upload" type="file" accept="image/*" (change)="onFileSelected($event)"/>
+              </div>
+              <button class="btn-image" type="submit">UPLOAD IMAGE</button>
+            </form>
+
+            <form (ngSubmit)="updateDog()" #dogForm="ngForm">
+                <div>
+                  <label for="id">ID:</label>
+                  <input type="number" id="id" name="id" [(ngModel)]="dog.id" disabled>
+                </div>
+                <div>
+                  <label for="name">NAME:</label>
+                  <input type="text" id="name" name="name" [(ngModel)]="dog.name" required>
+                </div>
+                <div>
+                  <label for="age">AGE:</label>
+                  <input type="number" id="age" name="age" [(ngModel)]="dog.age" required>
+                </div>
+                <div class="form-radio-group">
+                    <p><b>GENDER:</b></p>
+                    <div class="form-radio-group-options">
+                        <label for="gender_male">Male:</label>
+                        <input type="radio" id="gender_male" name="gender" value="Male" [(ngModel)]="dog.gender" required>
+                        <label for="gender_female">Female:</label>
+                        <input type="radio" id="gender_female" name="gender" value="Female" [(ngModel)]="dog.gender" required>
+                    </div>                    
+                </div>
+                <div class="form-radio-group">
+                    <p><b>VACCINATION:</b></p>
+                    <div class="form-radio-group-options">
+                      <label for="vaccination_yes">Yes:</label>
+                      <input type="radio" id="vaccination_yes" name="vaccination" [value]="true" [(ngModel)]="dog.vacc" required>
+                      <label for="vaccination_no">No:</label>
+                      <input type="radio" id="vaccination_no" name="vaccination" [value]="false" [(ngModel)]="dog.vacc" required>
+                    </div>
+                </div>
+                <div class="form-radio-group">
+                  <p><b>STERILIZATION:</b></p>
+                  <div class="form-radio-group-options">
+                    <label for="sterilization_yes">Yes:</label>
+                    <input type="radio" id="sterilization_yes" name="sterilization" [value]="true" [(ngModel)]="dog.ster" required>
+                    <label for="sterilization_no">No:</label>
+                    <input type="radio" id="sterilization_no" name="sterilization" [value]="false" [(ngModel)]="dog.ster" required>
+                  </div>
+                </div>
+                <div class="desc-form-input">
+                  <label for="description">DESCRIPTION:</label>
+                  <textarea id="description" name="description" rows="5" cols="50" [(ngModel)]="dog.description" required></textarea>
+                </div>
+                <button type="submit" class="dog-profile-btn"><img src="assets/dog pictures/check btn.svg" alt=""></button>
+                <button type="reset" class="dog-profile-btn-other"><img src="assets/dog pictures/del dog btn.svg" alt=""></button>
+            </form>
+            
+        </div>
+
+      </div>
+
+</div>

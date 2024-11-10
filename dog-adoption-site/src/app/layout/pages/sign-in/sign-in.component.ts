@@ -1,18 +1,34 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { NgIf } from '@angular/common';
+import { Component, inject } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { Router, RouterModule } from '@angular/router';
+import { AuthService } from '../../../service/auth.service';
+import { User } from '../../../model/user.model';
 
 @Component({
   selector: 'app-sign-in',
   standalone: true,
-  imports: [],
+  imports: [FormsModule, RouterModule],
   templateUrl: './sign-in.component.html',
   styleUrl: './sign-in.component.css'
 })
 export class SignInComponent {
+  user: User = new User();
 
-  constructor(private router: Router) {}
+  private authService = inject(AuthService);
+  private router = inject(Router);
 
-  redirectToSignUp() {
-    this.router.navigate(['/sign-up']);
+  login(): void {
+    this.authService.login(this.user).subscribe(
+      response => {
+        alert("Login sucessful. Session id: " + response.sessionId);
+        this.router.navigate(['/account']);
+      },
+      error => {
+        const errorMsg = error?.error?.message || 'ERROR: An unknown error occurred';
+        alert(errorMsg);
+      }
+    )
   }
+
 }

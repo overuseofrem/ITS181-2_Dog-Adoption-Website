@@ -1,0 +1,147 @@
+* {
+    font-family: var(--font);
+    /* border: lime solid 1px; */
+}
+
+.separator-paws {
+    position: absolute;
+    top: 4rem;
+    left: 63rem;
+}
+
+.main-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* min-height: 100vh; */
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--container-bg-color);
+    border-radius: var(--border-radius);
+    width: 38rem;
+    position: relative;
+    padding: 14rem 1rem 1rem 1rem;
+}
+
+.main-header {
+    display: flex;
+    justify-content: center;
+}
+
+.head-img {
+    background-color: var(--accent-color);
+    border-radius: 50px;
+    width: 15rem;
+    height: 15rem;
+    position: absolute;
+    top: -4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    object-fit: cover;
+}
+
+/* form styles */
+
+.dog-profile-btn,
+.dog-profile-btn-other {
+    border: none;
+    background-color: rgba(51, 170, 51, 0);
+    position: absolute;
+    bottom: -32px;
+    right: 3rem;
+    cursor: pointer;          
+}
+
+.dog-profile-btn-other {
+    right: 8rem;          
+}
+
+.dog-profile-btn img,
+.dog-profile-btn-other img{
+    width: 3.5rem;
+    height: 3.5rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    padding-bottom: 2rem;
+}
+
+input, textarea {
+    border: 3px solid var(--accent-color);
+    border-radius: var(--border-radius);
+    padding: 10px;
+    width: 100%;
+    font-size: var(--text-body-size);
+    resize: none;
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    width: 80%;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.form-radio-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form-radio-group label,
+.form-radio-group input {
+    width: fit-content;
+    margin: 0;    
+}
+
+.form-radio-group-options{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.desc-form-input{
+    margin-top: 1rem;
+}
+
+input[type="file"]{
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 0;
+    margin: 0.5rem 0;
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+input[type="file"]::file-selector-button{
+    background-color: var(--accent-color);
+    border: 3px solid transparent;
+    border-radius: var(--border-radius);
+    color: var(--btn-color);
+    font: var(--font);
+    padding: 0 0.5rem;
+    margin-right: 0.5rem;
+    transition: 0.1s ease-out;
+    cursor: pointer;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background-color: #FFFFFF;
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    transition: 0.1s ease-out;
+}

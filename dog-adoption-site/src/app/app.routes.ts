@@ -15,28 +15,36 @@ import { AdminDetailsEditComponent } from './layout/pages/admin-details-edit/adm
 import { AdminAdoptionsComponent } from './layout/pages/admin-adoptions/admin-adoptions.component';
 import { AdminDogsComponent } from './layout/pages/admin-dogs/admin-dogs.component';
 import { AccountViewApplicationsComponent } from './layout/pages/account-view-applications/account-view-applications.component';
-import { AdminAdoptionSubmissionViewComponent } from './layout/pages/admin-adoption-submission-view/admin-adoption-submission-view.component';
-import { AdminDogProfileViewComponent } from './layout/pages/admin-dog-profile-view/admin-dog-profile-view.component';
-import { AdminDogFormComponent } from './layout/pages/admin-dog-form/admin-dog-form.component';
+import { AdminAdoptionViewComponent } from './layout/pages/admin-adoption-view/admin-adoption-view.component';
+import { AdminDogViewComponent } from './layout/pages/admin-dog-view/admin-dog-view.component';
+import { AdminDogEditComponent } from './layout/pages/admin-dog-edit/admin-dog-edit.component';
+import { AdminDogAddComponent } from './layout/pages/admin-dog-add/admin-dog-add.component';
+import { AdminAddComponent } from './layout/pages/admin-add/admin-add.component';
+import { SignInAdminComponent } from './layout/pages/sign-in-admin/sign-in-admin.component';
 
 export const routes: Routes = [
     { path: '', component: HomepageComponent, title: 'Homepage' },
     { path: 'contact', component: ContactComponent,  title: 'Contact' },
     { path: 'about-us', component: AboutUsComponent,  title: 'About Us' },
     { path: 'adoptable-dogs', component: AdoptableDogsComponent,  title: 'Adoptable Dogs' },
-    { path: 'dog-profile', component: DogProfileComponent,  title: 'Dog Profile' },
-    { path: 'sign-up', component: SignUpComponent},
-    { path: 'sign-in', component: SignInComponent},
-    { path: 'account', component: AccountComponent},
-    { path: 'account-details', component: AccountDetailsViewComponent},
-    { path: 'account-details-edit', component: AccountDetailsEditComponent},
-    { path: 'admin', component: AdminComponent},
-    { path: 'admin-details', component: AdminDetailsViewComponent},
-    { path: 'admin-details-edit', component: AdminDetailsEditComponent},
-    { path: 'admin-adoptions', component:AdminAdoptionsComponent},
-    { path: 'admin-dogs', component:AdminDogsComponent}, 
-    { path: 'account-view-applications', component: AccountViewApplicationsComponent},
-    { path: 'admin-adoption-submission-view', component: AdminAdoptionSubmissionViewComponent},
-    { path: 'admin-dog-profile-view', component: AdminDogProfileViewComponent},
-    { path: 'admin-dog-form', component: AdminDogFormComponent},
+    { path: 'dog-profile/:id', component: DogProfileComponent,  title: 'Dog Profile' },
+    { path: 'sign-up', component: SignUpComponent, title: 'Sign-up'},
+    { path: 'sign-in', component: SignInComponent, title: 'Sign-in'},
+    { path: 'sign-in-admin', component: SignInAdminComponent, title: 'Admin Sign-in'},
+    // account pages
+    { path: 'account', component: AccountComponent, title: 'My Dashboard'},
+    { path: 'account/details/:id', component: AccountDetailsViewComponent, title: 'My Account Details'},
+    { path: 'account/details/edit/:id', component: AccountDetailsEditComponent, title: 'My Account Details'},
+    { path: 'account/applications', component: AccountViewApplicationsComponent, title: 'My Applications'},
+    // admin pages
+    { path: 'admin', component: AdminComponent, title: 'Admin Dashboard'},
+    { path: 'admin/add', component: AdminAddComponent, title: 'Create New Admin'},
+    { path: 'admin/details/:id', component: AdminDetailsViewComponent, title: 'Admin Details'},
+    { path: 'admin/details/edit/:id', component: AdminDetailsEditComponent, title: 'Admin Details'},
+    { path: 'admin/dogs', component:AdminDogsComponent, title: 'Manage Dogs'}, 
+    { path: 'admin/dogs/view/:id', component: AdminDogViewComponent, title: 'Manage Dog Profile'},
+    { path: 'admin/dogs/edit/:id', component: AdminDogEditComponent, title: 'Manage Dog Profile'},
+    { path: 'admin/dogs/add', component: AdminDogAddComponent, title: 'Create New Dog'},
+    { path: 'admin/adoptions', component:AdminAdoptionsComponent, title: 'Manage Adoptions'},
+    { path: 'admin/adoptions/view/:id', component: AdminAdoptionViewComponent, title: 'Manage Adoption Application'},
 ];

@@ -1,34 +1,24 @@
-<html>
-    <head>
-        <title>Dog Card</title>
-        <link rel="stylesheet" href="dog-card.component.css">
-    </head>
+<div class="card-wrapper">
+    <div class="dog-card">
 
-    <div class="card-wrapper">
-        <div class="dog-card">
-
-        <div class="img-container">
-           <img src="assets/dog pictures/dog-card-img.jpg" class="dog-img"> 
-        </div>
-        
-        <div class="card-text-wrapper">
-            <h2 class="dog-name"> Ham Sandwich</h2>
-            <p class="gen-text-body">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Nullam vestibulum risus in eros mattis, eget mollis 
-                est tristique. Donec sed lorem quam.
-                
-            </p>
-        </div>
-
-        <a href="/dog-profile" class="dog-profile-btn">
-            <img src="assets/dog pictures/paw.png" alt="">
-        </a>
-
-        </div>      
+    <div class="img-container">
+        <!-- <img src="assets/dog pictures/dog-card-img.jpg" class="dog-img">  -->
+        <img [src]="'http://localhost:18080/uploads-dogs/' + dog.img" alt="" class="dog-img">
+    </div>
+    
+    <div class="card-text-wrapper">
+        <h2 class="dog-name">{{dog.name}}</h2>
+        <p class="gen-text-body">
+            Age: {{ dog.age }}<br>
+            Gender: {{ dog.gender }}<br>
+            Vaccination: {{ dog.vacc ? 'Vaccinated' : 'Unvaccinated' }}<br>
+            Sterilization: {{ dog.ster ? 'Sterilized' : 'Unsterilized' }}
+        </p>
     </div>
 
+    <a [routerLink]="['/dog-profile', dog.id]" class="dog-profile-btn">
+        <img src="assets/dog pictures/paw.png" alt="">
+    </a>
 
-</html>
-
-
+    </div>      
+</div>
