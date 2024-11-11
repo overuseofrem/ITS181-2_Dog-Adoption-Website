@@ -16,7 +16,7 @@
             </div>
 
             <p class="gen-text-body">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vestibulum risus in eros mattis, eget mollis est tristique. Donec sed lorem quam.
+                Thank you for submitting your adoption application! We’re thrilled that you’ve chosen to give a loving home to one of our dogs. Our team will review your application and reach out to you soon with the next steps. We can’t wait for you to meet your new best friend!
             </p>
 
         </div>
@@ -47,7 +47,8 @@
                 <h2 class="gen-text-body-dogcard-head"><b>{{adoption.dog?.name}}</b></h2>
                 <p class="gen-text-body-dogcard">AGE: {{adoption.dog?.age}} years old</p>
                 <p class="gen-text-body-dogcard">GENDER: {{adoption.dog?.age}}</p>
-                <p class="gen-text-body-dogcard">DATE SUBMITTED: {{adoption.datetime | date: 'short'}}</p>
+                <p class="gen-text-body-dogcard">DATE SUBMITTED: {{adoption.datetime | date: 'mediumDate'}}</p>
+                <p class="gen-text-body-dogcard">TIME SUBMITTED: {{adoption.datetime | date: 'shortTime'}}</p>
                 <p class="gen-text-body-dogcard">STATUS: {{adoption.status}}</p>
                 <img src="assets/dog pictures/view profile btn.svg" alt="" class="dog-profile-btn" [routerLink]="['/dog-profile', adoption.dog?.id]">
             </div>

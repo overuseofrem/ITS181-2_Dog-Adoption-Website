@@ -31,7 +31,7 @@ export class AdminDetailsEditComponent implements OnInit {
         if (user && user.name) {
           this.user = user;
         } else {
-          alert('ERROR: Unauthorized access');
+          alert('ERROR: Unauthorized access!');
           this.router.navigate(['/sign-in-admin']);
         }
       }
@@ -47,7 +47,7 @@ export class AdminDetailsEditComponent implements OnInit {
 
   uploadImage(): void {
     if (!this.selectedFile || !this.user.id) {
-      alert("ERROR: No file selected!");
+      alert("ERROR: No file selected.");
       return;
     }
 
@@ -62,20 +62,25 @@ export class AdminDetailsEditComponent implements OnInit {
     );
   }
 
+  fieldsAreComplete(): boolean {
+    return this.user.name && this.user.contact && this.user.address ? true : false;
+  }
+
   updateUser(): void {
-    if (!this.user.id) {
-      alert('ERROR: User ID is missing. Cannot update user.');
-      return;
-    }
+    if (!this.fieldsAreComplete()) {
+      alert('ERROR: Please complete all fields.');
+    } else if (this.user.id) {
+      this.userService.updateUser(this.user.id, this.user).subscribe(
+        response => {
+          alert('User updated successfully!');
+        },
+        error => {
+          const errorMsg = error?.error?.message || 'An unknown error occurred';
+          alert('ERROR: ' + errorMsg);
+        }
+      );
+    } 
     
-    this.userService.updateUser(this.user.id, this.user).subscribe(
-      response => {
-        alert('User updated successfully');
-      },
-      error => {
-        alert('ERROR: Error updating user: ' + error);
-      }
-    );
   }
 
   onFocus() {

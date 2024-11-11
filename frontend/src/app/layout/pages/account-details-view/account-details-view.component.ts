@@ -26,7 +26,7 @@ export class AccountDetailsViewComponent {
         if (user) {
           this.user = user;
         } else {
-          alert('ERROR: Unauthorized access');
+          alert('ERROR: Unauthorized access!');
           this.router.navigate(['/sign-in']);
         }
       }
@@ -34,27 +34,24 @@ export class AccountDetailsViewComponent {
   }
 
   deleteUser(): void {
-    // check if id is populated
     if (!this.user.id) {
       alert('ERROR: User ID is missing. Cannot delete user.');
       return;
     }
 
-    // confirmation alert
     const confirmation = confirm('Are you sure you want to delete your account? This action cannot be undone.');
     if (!confirmation) {
       return; 
     }
 
-    // delete account
     this.userService.deleteUser(this.user.id).subscribe(
       response => {
-        alert("User delete success");
+        alert("User deleted successfully!");
         this.logout();        
       },
       error => {
-        const errorMsg = error?.error?.message || 'ERROR: An unknown error occurred';
-        alert(errorMsg);
+        const errorMsg = error?.error?.message || 'An unknown error occurred';
+        alert("ERROR: " + errorMsg);
       }
     );
   }
@@ -66,8 +63,8 @@ export class AccountDetailsViewComponent {
         this.router.navigate(['/']);
       },
       error => {
-        const errorMsg = error?.error?.message || 'ERROR: An unknown error occurred';
-        alert(errorMsg);
+        const errorMsg = error?.error?.message || 'An unknown error occurred';
+        alert("ERROR: " + errorMsg);
       }
     );
   }

@@ -26,13 +26,12 @@ export class AdminDogEditComponent implements OnInit {
   private router = inject(Router);
 
   ngOnInit(): void {
-    //session
     this.authService.checkAdminSession("ADMIN").subscribe(
       user => {
         if (user && user.name) {
           this.user = user;
         } else {
-          alert('ERROR: Unauthorized access');
+          alert('ERROR: Unauthorized access.');
           this.router.navigate(['/sign-in-admin']);
         }
       }
@@ -81,15 +80,24 @@ export class AdminDogEditComponent implements OnInit {
     );
   }
 
+  fieldsAreComplete(): boolean {
+    return this.dog.name && this.dog.age && this.dog.gender && this.dog.vacc && this.dog.ster && this.dog.description ? true : false;
+  }
+
   updateDog(): void {
-    this.dogService.updateDog(this.dog.id, this.dog).subscribe(
-      response => {
-        alert('Dog updated successfully');
-      },
-      error => {
-        alert('ERROR: Error updating dog: ' + error);
-      }
-    );
+    if (!this.fieldsAreComplete()) {
+      alert('ERROR: Please complete all fields.');
+    } else {
+      this.dogService.updateDog(this.dog.id, this.dog).subscribe(
+        response => {
+          alert('Dog updated successfully');
+        },
+        error => {
+          const errorMsg = error?.error?.message || 'An unknown error occurred';
+          alert('ERROR: ' + errorMsg);
+        }
+      );
+    }    
   }
 
 }

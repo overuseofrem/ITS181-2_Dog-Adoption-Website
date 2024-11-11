@@ -30,21 +30,28 @@ export class AdminDogViewComponent {
       user => {
         if (user && user.name) {
           this.user = user;
+          this.getDogData();
         } else {
-          alert('ERROR: Unauthorized access');
+          alert('ERROR: Unauthorized access!');
           this.router.navigate(['/sign-in-admin']);
         }
       }
     );
+  }
 
-    // get data
+  getDogData(): void{
     this.route.params.subscribe(params => {
       const id = params['id'];
       if (id) {
-        console.log('Id: ' + id);
-        this.dogService.getDogById(id).subscribe(data => {
-          this.dog = data;
-        });
+        this.dogService.getDogById(id).subscribe(
+          data => {
+            this.dog = data;
+          },
+          error => {
+            const errorMsg = error?.error?.message || 'An unknown error occurred';
+            alert("ERROR: " + errorMsg);
+          }
+        );
       }
     });
   }

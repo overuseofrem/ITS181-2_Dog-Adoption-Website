@@ -16,7 +16,8 @@
                         <div class="info-text-item">EMAIL: {{adoption.user?.username}}</div>
                         <div class="info-text-item">CONTACT NUMBER: {{adoption.user?.contact}}</div>
                         <div class="info-text-item">ADDRESS: {{adoption.user?.address}}</div>
-                        <div class="info-text-item">DATE SUBMITTED: {{ adoption.datetime | date:'short' }}</div>
+                        <div class="info-text-item">DATE SUBMITTED: {{ adoption.datetime | date:'mediumDate' }}</div>
+                        <div class="info-text-item">TIME SUBMITTED: {{ adoption.datetime | date:'shortTime' }}</div>
                         <div class="info-text-item">STATUS: {{adoption.status}}</div>
             </div>
     

@@ -44,17 +44,18 @@
 
     <!-- with adoptions message -->
     <div *ngIf="adoptions.length > 0">
-        <div class="main-container-dog" *ngFor="let adoption of adoptions">
+        <div class="main-container-dog">
             <div class="imgdogcard-content">
-                <img [src]="'http://localhost:18080/uploads-dogs/' + adoption.dog?.img " alt="Dog Profile Image">
+                <img [src]="'http://localhost:18080/uploads-dogs/' + adoptions[0].dog?.img " alt="Dog Profile Image">
             </div>
             <div class="detaildogcard-content">
-                <h2 class="gen-text-body-dogcard-head"><b>{{adoption.dog?.name}}</b></h2>
-                <p class="gen-text-body-dogcard">AGE: {{adoption.dog?.age}} years old</p>
-                <p class="gen-text-body-dogcard">GENDER: {{adoption.dog?.age}}</p>
-                <p class="gen-text-body-dogcard">DATE SUBMITTED: {{adoption.datetime | date: 'short'}}</p>
-                <p class="gen-text-body-dogcard">STATUS: {{adoption.status}}</p>
-                <img src="assets/dog pictures/view profile btn.svg" alt="" class="dog-profile-btn" [routerLink]="['/dog-profile', adoption.dog?.id]">
+                <h2 class="gen-text-body-dogcard-head"><b>{{adoptions[0].dog?.name}}</b></h2>
+                <p class="gen-text-body-dogcard">AGE: {{adoptions[0].dog?.age}} years old</p>
+                <p class="gen-text-body-dogcard">GENDER: {{adoptions[0].dog?.age}}</p>
+                <p class="gen-text-body-dogcard">DATE SUBMITTED: {{adoptions[0].datetime | date: 'mediumDate'}}</p>
+                <p class="gen-text-body-dogcard">TIME SUBMITTED: {{adoptions[0].datetime | date: 'shortTime'}}</p>
+                <p class="gen-text-body-dogcard">STATUS: {{adoptions[0].status}}</p>
+                <img src="assets/dog pictures/view profile btn.svg" alt="" class="dog-profile-btn" [routerLink]="['/dog-profile', adoptions[0].dog?.id]">
             </div>
         </div>
         

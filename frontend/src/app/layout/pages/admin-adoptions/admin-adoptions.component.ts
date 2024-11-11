@@ -31,7 +31,7 @@ export class AdminAdoptionsComponent {
           this.user = user;
           this.nickname = user.name.replace(/ .*/, '');
         } else {
-          alert('ERROR: Unauthorized access');
+          alert('ERROR: Unauthorized access!');
           this.router.navigate(['/sign-in-admin']);
         }
       }
@@ -46,7 +46,8 @@ export class AdminAdoptionsComponent {
         this.adoptions = data;
       },
       error => {
-        alert('ERROR: Error fetching adoptions:' + error);
+        const errorMsg = error?.error?.message || 'An unknown error occurred';
+        alert("ERROR: " + errorMsg);
       }
     );
   }
@@ -58,8 +59,8 @@ export class AdminAdoptionsComponent {
         this.router.navigate(['/']);
       },
       error => {
-        const errorMsg = error?.error?.message || 'ERROR: An unknown error occurred';
-        alert(errorMsg);
+        const errorMsg = error?.error?.message || 'An unknown error occurred';
+        alert("ERROR: " + errorMsg);
       }
     );
   }

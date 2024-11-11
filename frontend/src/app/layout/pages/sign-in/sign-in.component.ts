@@ -21,12 +21,12 @@ export class SignInComponent {
   login(): void {
     this.authService.login(this.user).subscribe(
       response => {
-        alert("Login sucessful. Session id: " + response.sessionId);
+        alert("Login sucessful! Your session id is: " + response.sessionId);
         this.router.navigate(['/account']);
       },
       error => {
-        const errorMsg = error?.error?.message || 'ERROR: An unknown error occurred';
-        alert(errorMsg);
+        const errorMsg = error?.error?.message || 'An unknown error occurred';
+        alert("ERROR: " + errorMsg);
       }
     )
   }

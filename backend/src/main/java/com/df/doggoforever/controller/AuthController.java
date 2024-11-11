@@ -31,9 +31,9 @@ public class AuthController {
     public ResponseEntity<?> register(@RequestBody User user) {
         if(!authService.usernameIsTaken(user.getUsername())){
             userService.addUser(user);
-            return ResponseEntity.ok(Map.of("message", "User registered successfully"));
+            return ResponseEntity.ok(Map.of("message", "User registered successfully!"));
         }
-        return ResponseEntity.badRequest().body(Map.of("message", "ERROR: Username is taken"));
+        return ResponseEntity.badRequest().body(Map.of("message", "Email address is taken."));
     }
 
     @PostMapping("/sign-in")
@@ -45,13 +45,13 @@ public class AuthController {
                 if(Objects.equals(existingUser.getRole(), "USER")){
                     return createSession(session, user.getUsername());
                 } else {
-                    return ResponseEntity.badRequest().body(Map.of("message", "ERROR: Please use the admin sign-in form"));
+                    return ResponseEntity.badRequest().body(Map.of("message", "Please use the admin sign-in form."));
                 }
             }else{
-                return ResponseEntity.badRequest().body(Map.of("message", "ERROR: Incorrect password"));
+                return ResponseEntity.badRequest().body(Map.of("message", "Incorrect password."));
             }
         }
-        return ResponseEntity.badRequest().body(Map.of("message", "ERROR: User not found"));
+        return ResponseEntity.badRequest().body(Map.of("message", "User not found."));
     }
 
     @PostMapping("/sign-in-admin")
@@ -63,13 +63,13 @@ public class AuthController {
                 if(Objects.equals(existingUser.getRole(), "ADMIN")){
                     return createSession(session, user.getUsername());
                 } else {
-                    return ResponseEntity.badRequest().body(Map.of("message", "ERROR: Please use the user sign-in form"));
+                    return ResponseEntity.badRequest().body(Map.of("message", "Please use the user sign-in form."));
                 }
             }else{
-                return ResponseEntity.badRequest().body(Map.of("message", "ERROR: Incorrect password"));
+                return ResponseEntity.badRequest().body(Map.of("message", "Incorrect password."));
             }
         }
-        return ResponseEntity.badRequest().body(Map.of("message", "ERROR: User not found"));
+        return ResponseEntity.badRequest().body(Map.of("message", "User not found."));
     }
 
     public ResponseEntity<?> createSession(HttpSession session, String username) {
@@ -82,7 +82,7 @@ public class AuthController {
         String username = (String) session.getAttribute("username");
 
         if (username == null) {
-            return ResponseEntity.badRequest().body(Map.of("message", "ERROR: No User session active"));
+            return ResponseEntity.badRequest().body(Map.of("message", "No user session active."));
         }
 
         User user  = userService.getUserByUsername(username);
@@ -92,7 +92,7 @@ public class AuthController {
     @GetMapping("/session/invalidate")
     public ResponseEntity<?> invalidateSession(HttpSession session) {
         session.invalidate();
-        return ResponseEntity.ok(Map.of("message", "Logout successful"));
+        return ResponseEntity.ok(Map.of("message", "Logout successful!"));
     }
 
 }

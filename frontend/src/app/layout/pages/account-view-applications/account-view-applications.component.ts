@@ -31,7 +31,7 @@ export class AccountViewApplicationsComponent implements OnInit{
           this.user = user;
           this.loadAdoptionsByUser();
         } else {
-          alert('ERROR: Unauthorized access');
+          alert('ERROR: Unauthorized access!');
           this.router.navigate(['/sign-in']);
         }
       }
@@ -45,7 +45,8 @@ export class AccountViewApplicationsComponent implements OnInit{
           this.adoptions = data;
         },
         error => {
-          alert('ERROR: Error fetching adoptions:' + error);
+          const errorMsg = error?.error?.message || 'An unknown error occurred';
+          alert("ERROR: " + errorMsg);
         }
       );
     }
