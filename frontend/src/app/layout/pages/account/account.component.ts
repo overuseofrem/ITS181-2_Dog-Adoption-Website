@@ -32,7 +32,7 @@ export class AccountComponent implements OnInit {
           this.nickname = user.name.replace(/ .*/, '');
           this.loadAdoptionsByUser();
         } else {
-          alert('ERROR: Unauthorized access');
+          alert('ERROR: Unauthorized access!');
           this.router.navigate(['/sign-in']);
         }
       }
@@ -46,7 +46,8 @@ export class AccountComponent implements OnInit {
           this.adoptions = data;
         },
         error => {
-          alert('ERROR: Error fetching adoptions:' + error);
+          const errorMsg = error?.error?.message || 'An unknown error occurred';
+          alert("ERROR: " + errorMsg);
         }
       );
     }
@@ -59,8 +60,8 @@ export class AccountComponent implements OnInit {
         this.router.navigate(['/']);
       },
       error => {
-        const errorMsg = error?.error?.message || 'ERROR: An unknown error occurred';
-        alert(errorMsg);
+        const errorMsg = error?.error?.message || 'An unknown error occurred';
+        alert("ERROR: " + errorMsg);
       }
     );
   }

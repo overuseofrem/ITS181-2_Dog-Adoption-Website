@@ -4,13 +4,12 @@ import { User } from '../../../model/user.model';
 import { AuthService } from '../../../service/auth.service';
 import { Dog } from '../../../model/dog.model';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { DogService } from '../../../service/dog.service';
 
 @Component({
   selector: 'app-admin-dogs',
   standalone: true,
-  imports: [RouterModule, CommonModule, HttpClientModule],
+  imports: [RouterModule, CommonModule],
   templateUrl: './admin-dogs.component.html',
   styleUrl: './admin-dogs.component.css'
 })
@@ -31,7 +30,7 @@ export class AdminDogsComponent {
           this.user = user;
           this.nickname = user.name.replace(/ .*/, '');
         } else {
-          alert('ERROR: Unauthorized access');
+          alert('ERROR: Unauthorized access!');
           this.router.navigate(['/sign-in-admin']);
         }
       }
@@ -49,8 +48,8 @@ export class AdminDogsComponent {
         this.router.navigate(['/']);
       },
       error => {
-        const errorMsg = error?.error?.message || 'ERROR: An unknown error occurred';
-        alert(errorMsg);
+        const errorMsg = error?.error?.message || 'An unknown error occurred';
+        alert("ERROR: " + errorMsg);
       }
     );
   }
@@ -63,7 +62,8 @@ export class AdminDogsComponent {
           this.ngOnInit();
         },
         error => {
-          alert('ERROR: Error deleting country:' + error);
+          const errorMsg = error?.error?.message || 'An unknown error occurred';
+          alert("ERROR: " + errorMsg);
         }
       );
     }

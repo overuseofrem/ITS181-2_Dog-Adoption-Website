@@ -3,7 +3,6 @@ package com.df.doggoforever.service;
 import com.df.doggoforever.model.Dog;
 import com.df.doggoforever.repository.DogRepository;
 import jakarta.annotation.PostConstruct;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -16,7 +15,6 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.UUID;
 
-@RequiredArgsConstructor
 @Service
 public class DogService {
     @Autowired

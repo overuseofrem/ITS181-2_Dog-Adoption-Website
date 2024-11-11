@@ -1,5 +1,3 @@
-import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
@@ -10,7 +8,7 @@ import { UserService } from '../../../service/user.service';
 @Component({
   selector: 'app-admin-details-edit',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, RouterModule, FormsModule],
+  imports: [RouterModule, FormsModule],
   templateUrl: './admin-details-edit.component.html',
   styleUrl: './admin-details-edit.component.css'
 })
@@ -23,15 +21,13 @@ export class AdminDetailsEditComponent implements OnInit {
   private userService = inject(UserService);
   private router = inject(Router);
 
-  constructor(private http: HttpClient) {}
-
   ngOnInit(): void {
     this.authService.checkAdminSession("ADMIN").subscribe(
       user => {
         if (user && user.name) {
           this.user = user;
         } else {
-          alert('ERROR: Unauthorized access');
+          alert('ERROR: Unauthorized access!');
           this.router.navigate(['/sign-in-admin']);
         }
       }
@@ -47,7 +43,7 @@ export class AdminDetailsEditComponent implements OnInit {
 
   uploadImage(): void {
     if (!this.selectedFile || !this.user.id) {
-      alert("ERROR: No file selected!");
+      alert("ERROR: No file selected.");
       return;
     }
 
@@ -62,20 +58,25 @@ export class AdminDetailsEditComponent implements OnInit {
     );
   }
 
+  fieldsAreComplete(): boolean {
+    return this.user.name && this.user.contact && this.user.address ? true : false;
+  }
+
   updateUser(): void {
-    if (!this.user.id) {
-      alert('ERROR: User ID is missing. Cannot update user.');
-      return;
-    }
+    if (!this.fieldsAreComplete()) {
+      alert('ERROR: Please complete all fields.');
+    } else if (this.user.id) {
+      this.userService.updateUser(this.user.id, this.user).subscribe(
+        response => {
+          alert('User updated successfully!');
+        },
+        error => {
+          const errorMsg = error?.error?.message || 'An unknown error occurred';
+          alert('ERROR: ' + errorMsg);
+        }
+      );
+    } 
     
-    this.userService.updateUser(this.user.id, this.user).subscribe(
-      response => {
-        alert('User updated successfully');
-      },
-      error => {
-        alert('ERROR: Error updating user: ' + error);
-      }
-    );
   }
 
   onFocus() {

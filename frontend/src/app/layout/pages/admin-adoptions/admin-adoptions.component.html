@@ -56,7 +56,8 @@
                         </div>
                         <div class="tc-desc">
                             <p>Dog: {{ adoption.dog?.name }}</p> 
-                            <p>Datetime: {{ adoption.datetime | date:'short' }}</p> 
+                            <p>Date: {{ adoption.datetime | date:'mediumDate' }}</p> 
+                            <p>Time: {{ adoption.datetime | date:'shortTime' }}</p> 
                             <p>Status: {{ adoption.status }}</p>
                         </div>
                     </div>

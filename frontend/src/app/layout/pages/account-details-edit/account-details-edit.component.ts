@@ -3,14 +3,12 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { User } from '../../../model/user.model';
 import { AuthService } from '../../../service/auth.service';
 import { UserService } from '../../../service/user.service';
-import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-account-details-edit',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, RouterModule, FormsModule],
+  imports: [RouterModule, FormsModule],
   templateUrl: './account-details-edit.component.html',
   styleUrl: './account-details-edit.component.css'
 })
@@ -23,15 +21,13 @@ export class AccountDetailsEditComponent implements OnInit {
   private userService = inject(UserService);
   private router = inject(Router);
 
-  constructor(private http: HttpClient) {}
-
   ngOnInit(): void {
     this.authService.checkUserSession("USER").subscribe(
       user => {
         if (user) {
           this.user = user;
         } else {
-          alert('ERROR: Unauthorized access');
+          alert('ERROR: Unauthorized access!');
           this.router.navigate(['/sign-in']);
         }
       }
@@ -47,7 +43,7 @@ export class AccountDetailsEditComponent implements OnInit {
 
   uploadImage(): void {
     if (!this.selectedFile || !this.user.id) {
-      alert("ERROR: No file selected!");
+      alert("ERROR: No file selected.");
       return;
     }
 
@@ -62,20 +58,24 @@ export class AccountDetailsEditComponent implements OnInit {
     );
   }
 
+  fieldsAreComplete(): boolean {
+    return this.user.name && this.user.contact && this.user.address ? true : false;
+  }
+
   updateUser(): void {
-    if (!this.user.id) {
-      alert('ERROR: User ID is missing. Cannot update user.');
-      return;
-    }
-    
-    this.userService.updateUser(this.user.id, this.user).subscribe(
-      response => {
-        alert('User updated successfully');
-      },
-      error => {
-        alert('ERROR: Error updating user: ' + error);
-      }
-    );
+    if (!this.fieldsAreComplete()) {
+      alert('ERROR: Please complete all fields.');
+    } else if (this.user.id) {
+      this.userService.updateUser(this.user.id, this.user).subscribe(
+        response => {
+          alert('User updated successfully!');
+        },
+        error => {
+          const errorMsg = error?.error?.message || 'An unknown error occurred';
+          alert('ERROR: ' + errorMsg);
+        }
+      );
+    } 
   }
 
   onFocus() {

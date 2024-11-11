@@ -7,6 +7,7 @@ import { User } from '../../../model/user.model';
 import { Adoption } from '../../../model/adoption.model';
 import { AdoptionService } from '../../../service/adoption.service';
 import { CommonModule } from '@angular/common';
+import { ApplicationService } from '../../../service/application.service';
 
 @Component({
   selector: 'app-dog-profile',
@@ -26,10 +27,10 @@ export class DogProfileComponent {
   private dogService = inject(DogService);
   private authService = inject(AuthService);
   private adoptionService = inject(AdoptionService);
+  private applicationService = inject(ApplicationService);
   private router = inject(Router);
 
   ngOnInit(): void {
-    // get data
     this.route.params.subscribe(params => {
       const id = params['id'];
       if (id) {
@@ -69,10 +70,10 @@ export class DogProfileComponent {
         if (user) {
           this.user = user;
           if(confirm('Are you sure you want to apply for the adoption of ' + this.dog.name + '?')){
-            this.createAdoption(); // create adoption record
+            this.createAdoption();
           }
         } else {
-          alert('ERROR: Please sign-in as a user to adopt');
+          alert('ERROR: Please sign-in as a user to adopt.');
         }
       }
     );
@@ -82,28 +83,48 @@ export class DogProfileComponent {
     if(this.user.id && this.dog.id){
       this.adoptionService.createAdoption(this.user.id, this.dog.id, this.adoption).subscribe(
         response => {
-          alert('Successfully applied for adoption! We have sent your details to the local vet. Please wait for further instructions.')
-          this.router.navigate(['/account/applications']);
+          this.sendApplicationEmail();          
         },
         error => {
-          const errorMsg = error?.error?.message || 'ERROR: An unknown error occurred';
-          alert(errorMsg);
+          const errorMsg = error?.error?.message || 'An unknown error occurred';
+          alert("ERROR: " + errorMsg);
         }
       )
     }
+  }
+
+  sendApplicationEmail(): void {
+    const application = {
+      userName: this.user.name,
+      userEmail: this.user.username,
+      contactNumber: this.user.contact,
+      address: this.user.address,
+      dogName: this.dog.name
+    };
+
+    this.applicationService.sendApplicationEmail(application).subscribe(
+      response => {
+        alert(response.message);
+        this.router.navigate(['/account/applications']);
+      },
+      error => {
+        const errorMsg = error?.error?.message || 'An unknown error occurred';
+        alert("ERROR: " + errorMsg);
+      }
+    );
   }
 
   deleteAdoption(): void {
     if (this.user.id && this.dog.id) {
       this.adoptionService.deleteAdoptionByUserAndDog(this.user.id, this.dog.id).subscribe(
         () => {
-          this.adoptionExists = false;  // Update the flag to reflect that adoption no longer exists
-          alert('Adoption has been canceled successfully.');
+          this.adoptionExists = false;
+          alert('Adoption has been canceled successfully!');
           this.router.navigate(['/account/applications']);  
         },
         error => {
-          const errorMsg = error?.error?.message || 'ERROR: Could not cancel adoption. Please try again later.';
-          alert(errorMsg);
+          const errorMsg = error?.error?.message || 'Could not cancel adoption. Please try again later.';
+          alert("ERROR: " + errorMsg);
         }
       );
     }

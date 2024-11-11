@@ -27,7 +27,8 @@ export class AdoptableDogsComponent {
         this.dogs = data; 
       },
       (error) => {
-        alert("ERROR: Error fetching dogs:" + error);
+        const errorMsg = error?.error?.message || 'An unknown error occurred';
+        alert("ERROR: " + errorMsg);
       }
     );
   }

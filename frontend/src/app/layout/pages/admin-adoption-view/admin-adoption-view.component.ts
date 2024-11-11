@@ -3,8 +3,6 @@ import { AdoptionService } from '../../../service/adoption.service';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../../service/auth.service';
 import { User } from '../../../model/user.model';
-import { DogService } from '../../../service/dog.service';
-import { Dog } from '../../../model/dog.model';
 import { Adoption } from '../../../model/adoption.model';
 import { CommonModule } from '@angular/common';
 
@@ -32,7 +30,7 @@ export class AdminAdoptionViewComponent implements OnInit{
           this.user = user;
           this.getAdoptionData();
         } else {
-          alert('ERROR: Unauthorized access');
+          alert('ERROR: Unauthorized access!');
           this.router.navigate(['/sign-in-admin']);
         }
       }
@@ -48,7 +46,8 @@ export class AdminAdoptionViewComponent implements OnInit{
             this.adoption = data;
           },
           error => {
-            alert('ERROR: Error fetching adoption details: ' + error);
+            const errorMsg = error?.error?.message || 'An unknown error occurred';
+            alert("ERROR: " + errorMsg);
           }
         );
       }

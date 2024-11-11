@@ -37,17 +37,16 @@
 
             <h2 class="header-text">MESSAGE US!</h2>
             
-            <form action="#" method="POST">
-                <input type="text" id="name" name="name" placeholder="Enter your name..." required>
+            <form (ngSubmit)="sendInquiry()" #contactForm = "ngForm">
+                <input type="text" id="name" name="name" placeholder="Enter your name..." [(ngModel)]="name" required>
                 <br><br>
-                <input type="email" id="email" name="email" placeholder="Enter your email..." required>
+                <input type="email" id="email" name="email" placeholder="Enter your email..." [(ngModel)]="email" required>
                 <br><br>
-                <textarea id="message" name="message" placeholder="Enter your message..." rows="10" required></textarea>
+                <textarea id="message" name="message" placeholder="Enter your message..." rows="10" [(ngModel)]="message" required></textarea>
                 <br><br>
-            
+                <button class="btn" type="submit">SEND MESSAGE</button>            
             </form>
 
-            <button class="btn" type="submit">SEND MESSAGE</button>
 
         </div>
 

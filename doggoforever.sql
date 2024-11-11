@@ -58,7 +58,7 @@ DROP TABLE IF EXISTS `dog`;
 CREATE TABLE `dog` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `age` int NOT NULL,
-  `description` varchar(255) DEFAULT NULL,
+  `description` text,
   `gender` varchar(255) DEFAULT NULL,
   `img` varchar(255) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
@@ -74,7 +74,7 @@ CREATE TABLE `dog` (
 
 LOCK TABLES `dog` WRITE;
 /*!40000 ALTER TABLE `dog` DISABLE KEYS */;
-INSERT INTO `dog` VALUES (1,5,'Woof woof','Male','7596eb8c-9f42-4614-abc9-a18b38492d6f.jpg','Bond',_binary '',_binary '\0'),(2,3,'Arf arf','Male','e596dd2a-4088-4eb1-81a8-da59ad7e161f.png','Chimmy',_binary '\0',_binary ''),(3,3,'Borf borf','Male','6ab85868-ba42-4296-a907-92a3a4365891.jpg','Bear',_binary '',_binary '\0');
+INSERT INTO `dog` VALUES (1,5,'Bond is a friendly and affectionate Great Pyrenees, known for his calm demeanor and loyalty. He loves being around his family and is especially protective. While he enjoys outdoor time, he\'s equally content snuggling with his loved ones. Bond is ideal for a family or individual who appreciates a loyal, gentle companion with a need for both affection and a little space to roam. If you’re looking for a loving, dependable dog, Bond may be the perfect match!','Male','7596eb8c-9f42-4614-abc9-a18b38492d6f.jpg','Bond',_binary '',_binary '\0'),(2,4,'Nala is a cheerful and affectionate female Golden Retriever with a heart full of love. Known for her friendly nature, she enjoys spending time with her family and is always up for a game or a cuddle. Nala’s playful spirit makes her great with children and other pets, and her gentle demeanor ensures she’s a perfect companion for any home. Whether it\'s playing outdoors or snuggling up for some downtime, Nala will bring joy and love to your family. If you\'re looking for a sweet, energetic, and loyal dog, Nala could be the one for you!','Female','fccf80d5-1e6b-49e9-b75d-23184785974b.png','Nala Stomps',_binary '',_binary ''),(3,3,'Bear is a lovable, brown male Newfoundland with a calm and easygoing nature. Known for their gentle giant temperament, Newfoundlands are incredibly loyal and protective, and Bear is no exception. He enjoys being with his family, whether it’s lounging around or going on leisurely walks. His friendly and patient demeanor makes him great with kids and other pets. Bear’s majestic size is matched by a heart full of affection, and he thrives in a home where he can receive plenty of love and attention. If you’re looking for a devoted and loving companion, Bear may be the perfect fit for your family!','Male','6ab85868-ba42-4296-a907-92a3a4365891.jpg','Bear',_binary '',_binary '\0');
 /*!40000 ALTER TABLE `dog` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -106,7 +106,6 @@ CREATE TABLE `spring_session` (
 
 LOCK TABLES `spring_session` WRITE;
 /*!40000 ALTER TABLE `spring_session` DISABLE KEYS */;
-INSERT INTO `spring_session` VALUES ('bc4b8545-f72b-4c89-9c58-5d2de65aab16','bfcce235-b17c-4c86-8765-b56c9908359d',1731209875482,1731212854567,3600,1731216454567,NULL);
 /*!40000 ALTER TABLE `spring_session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -132,7 +131,6 @@ CREATE TABLE `spring_session_attributes` (
 
 LOCK TABLES `spring_session_attributes` WRITE;
 /*!40000 ALTER TABLE `spring_session_attributes` DISABLE KEYS */;
-INSERT INTO `spring_session_attributes` VALUES ('bc4b8545-f72b-4c89-9c58-5d2de65aab16','username',_binary ' \ \0t\0user@gmail.com');
 /*!40000 ALTER TABLE `spring_session_attributes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -175,4 +173,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-11-10 12:55:08
+-- Dump completed on 2024-11-11 15:10:17

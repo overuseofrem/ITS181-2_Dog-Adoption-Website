@@ -87,7 +87,7 @@ public class UserService {
 
         String originalFilename = image.getOriginalFilename();
         String fileExtension = originalFilename != null && originalFilename.contains(".") ?
-                originalFilename.substring(originalFilename.lastIndexOf(".")) : ".jpg"; // Default to .jpg if no extension
+                originalFilename.substring(originalFilename.lastIndexOf(".")) : ".jpg";
 
         String uniqueFilename = UUID.randomUUID().toString() + fileExtension;
 

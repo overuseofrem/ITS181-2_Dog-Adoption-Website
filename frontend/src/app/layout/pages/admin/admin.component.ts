@@ -25,7 +25,7 @@ export class AdminComponent implements OnInit{
           this.user = user;
           this.nickname = user.name.replace(/ .*/, '');
         } else {
-          alert('ERROR: Unauthorized access');
+          alert('ERROR: Unauthorized access!');
           this.router.navigate(['/sign-in-admin']);
         }
       }

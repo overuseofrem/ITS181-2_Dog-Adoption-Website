@@ -3,14 +3,13 @@ import { FormsModule} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Dog } from '../../../model/dog.model';
 import { DogService } from '../../../service/dog.service';
-import { CommonModule } from '@angular/common';
 import { AuthService } from '../../../service/auth.service';
 import { User } from '../../../model/user.model';
 
 @Component({
   selector: 'app-admin-dog-edit',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule],
   templateUrl: './admin-dog-edit.component.html',
   styleUrl: './admin-dog-edit.component.css'
 })
@@ -26,13 +25,12 @@ export class AdminDogEditComponent implements OnInit {
   private router = inject(Router);
 
   ngOnInit(): void {
-    //session
     this.authService.checkAdminSession("ADMIN").subscribe(
       user => {
         if (user && user.name) {
           this.user = user;
         } else {
-          alert('ERROR: Unauthorized access');
+          alert('ERROR: Unauthorized access.');
           this.router.navigate(['/sign-in-admin']);
         }
       }
@@ -81,15 +79,25 @@ export class AdminDogEditComponent implements OnInit {
     );
   }
 
+  fieldsAreComplete(): boolean {
+    return this.dog.name && this.dog.age && this.dog.gender && this.dog.vacc != null && this.dog.ster != null && this.dog.description ? true : false;
+  }
+
   updateDog(): void {
-    this.dogService.updateDog(this.dog.id, this.dog).subscribe(
-      response => {
-        alert('Dog updated successfully');
-      },
-      error => {
-        alert('ERROR: Error updating dog: ' + error);
-      }
-    );
+    if (!this.fieldsAreComplete()) {
+      alert('ERROR: Please complete all fields.');
+      console.log(this.dog);
+    } else {
+      this.dogService.updateDog(this.dog.id, this.dog).subscribe(
+        response => {
+          alert('Dog updated successfully!');
+        },
+        error => {
+          const errorMsg = error?.error?.message || 'An unknown error occurred';
+          alert('ERROR: ' + errorMsg);
+        }
+      );
+    }    
   }
 
 }

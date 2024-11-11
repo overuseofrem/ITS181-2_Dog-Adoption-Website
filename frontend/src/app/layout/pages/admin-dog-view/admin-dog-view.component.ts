@@ -1,5 +1,4 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Dog } from '../../../model/dog.model';
@@ -10,7 +9,7 @@ import { AuthService } from '../../../service/auth.service';
 @Component({
   selector: 'app-admin-dog-view',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, RouterModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './admin-dog-view.component.html',
   styleUrl: './admin-dog-view.component.css'
 })
@@ -25,26 +24,32 @@ export class AdminDogViewComponent {
   private router = inject(Router);
 
   ngOnInit(): void {
-    // session
     this.authService.checkAdminSession("ADMIN").subscribe(
       user => {
         if (user && user.name) {
           this.user = user;
+          this.getDogData();
         } else {
-          alert('ERROR: Unauthorized access');
+          alert('ERROR: Unauthorized access!');
           this.router.navigate(['/sign-in-admin']);
         }
       }
     );
+  }
 
-    // get data
+  getDogData(): void{
     this.route.params.subscribe(params => {
       const id = params['id'];
       if (id) {
-        console.log('Id: ' + id);
-        this.dogService.getDogById(id).subscribe(data => {
-          this.dog = data;
-        });
+        this.dogService.getDogById(id).subscribe(
+          data => {
+            this.dog = data;
+          },
+          error => {
+            const errorMsg = error?.error?.message || 'An unknown error occurred';
+            alert("ERROR: " + errorMsg);
+          }
+        );
       }
     });
   }

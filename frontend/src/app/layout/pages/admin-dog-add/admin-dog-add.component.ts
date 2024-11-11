@@ -28,23 +28,32 @@ export class AdminDogAddComponent implements OnInit{
         if (user && user.name) {
           this.user = user;
         } else {
-          alert('ERROR: Unauthorized access');
+          alert('ERROR: Unauthorized access!');
           this.router.navigate(['/sign-in-admin']);
         }
       }
     );
   }
 
+  fieldsAreComplete(): boolean {
+    return this.dog.name && this.dog.age && this.dog.gender && this.dog.vacc != null && this.dog.ster != null && this.dog.description ? true : false;
+  }
+
   addDog(): void {
-    this.dogService.addDog(this.dog).subscribe(
-      response => {
-        this.dog.img = "default-dog.png";
-        alert('Dog added successfully');
-        this.router.navigate(['/admin/dogs']);  // Navigate to the dog list page
-      },
-      error => {
-        alert('ERROR: Error adding dog: ' + error);
-      }
-    );
+    if (!this.fieldsAreComplete()) {
+      alert('ERROR: Please complete all fields.');
+    } else {
+      this.dogService.addDog(this.dog).subscribe(
+        response => {
+          this.dog.img = "default-dog.png";
+          alert('Dog added successfully!');
+          this.router.navigate(['/admin/dogs']);
+        },
+        error => {
+          const errorMsg = error?.error?.message || 'An unknown error occurred';
+          alert('ERROR: ' + errorMsg);
+        }
+      );
+    }    
   }
 }

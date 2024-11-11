@@ -60,7 +60,6 @@ public class AdoptionService {
     }
 
     public void deleteAdoptionByUserAndDog(Long userId, Long dogId) {
-        // Find the adoption by userId and dogId
         Adoption adoption = adoptionRepository.findByUserIdAndDogId(userId, dogId);
         if (adoption != null) {
             adoptionRepository.delete(adoption);
