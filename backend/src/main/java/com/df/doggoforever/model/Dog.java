@@ -22,8 +22,10 @@ public class Dog {
     private String gender;
     private boolean vacc;
     private boolean ster;
-    private String description;
     private String img;
+
+    @Column(columnDefinition = "TEXT")
+    private String description;
 
     @OneToMany(mappedBy = "dog", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Adoption> adoptions = new HashSet<>();

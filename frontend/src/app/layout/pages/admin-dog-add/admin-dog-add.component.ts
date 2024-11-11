@@ -36,7 +36,7 @@ export class AdminDogAddComponent implements OnInit{
   }
 
   fieldsAreComplete(): boolean {
-    return this.dog.name && this.dog.age && this.dog.gender && this.dog.vacc && this.dog.ster && this.dog.description ? true : false;
+    return this.dog.name && this.dog.age && this.dog.gender && this.dog.vacc != null && this.dog.ster != null && this.dog.description ? true : false;
   }
 
   addDog(): void {

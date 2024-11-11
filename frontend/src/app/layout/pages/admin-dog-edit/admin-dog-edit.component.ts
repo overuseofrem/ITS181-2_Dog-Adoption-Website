@@ -80,16 +80,17 @@ export class AdminDogEditComponent implements OnInit {
   }
 
   fieldsAreComplete(): boolean {
-    return this.dog.name && this.dog.age && this.dog.gender && this.dog.vacc && this.dog.ster && this.dog.description ? true : false;
+    return this.dog.name && this.dog.age && this.dog.gender && this.dog.vacc != null && this.dog.ster != null && this.dog.description ? true : false;
   }
 
   updateDog(): void {
     if (!this.fieldsAreComplete()) {
       alert('ERROR: Please complete all fields.');
+      console.log(this.dog);
     } else {
       this.dogService.updateDog(this.dog.id, this.dog).subscribe(
         response => {
-          alert('Dog updated successfully');
+          alert('Dog updated successfully!');
         },
         error => {
           const errorMsg = error?.error?.message || 'An unknown error occurred';
