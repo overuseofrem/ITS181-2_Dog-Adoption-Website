@@ -3,14 +3,12 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { User } from '../../../model/user.model';
 import { AuthService } from '../../../service/auth.service';
 import { UserService } from '../../../service/user.service';
-import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-account-details-edit',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, RouterModule, FormsModule],
+  imports: [RouterModule, FormsModule],
   templateUrl: './account-details-edit.component.html',
   styleUrl: './account-details-edit.component.css'
 })
@@ -22,8 +20,6 @@ export class AccountDetailsEditComponent implements OnInit {
   private authService = inject(AuthService);
   private userService = inject(UserService);
   private router = inject(Router);
-
-  constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
     this.authService.checkUserSession("USER").subscribe(

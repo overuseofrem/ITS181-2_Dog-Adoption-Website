@@ -1,5 +1,3 @@
-import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
@@ -10,7 +8,7 @@ import { UserService } from '../../../service/user.service';
 @Component({
   selector: 'app-admin-details-edit',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, RouterModule, FormsModule],
+  imports: [RouterModule, FormsModule],
   templateUrl: './admin-details-edit.component.html',
   styleUrl: './admin-details-edit.component.css'
 })
@@ -22,8 +20,6 @@ export class AdminDetailsEditComponent implements OnInit {
   private authService = inject(AuthService);
   private userService = inject(UserService);
   private router = inject(Router);
-
-  constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
     this.authService.checkAdminSession("ADMIN").subscribe(

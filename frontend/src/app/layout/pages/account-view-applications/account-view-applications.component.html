@@ -29,8 +29,8 @@
 
     <!-- no adoptions message -->
     <div *ngIf="adoptions.length === 0">
-        <div class="main-container" style="text-align: center; padding: 1rem;">
-            <h2>No adoption applications found in the database.</h2>
+        <div class="main-container" style="padding: 1rem;">
+            <h2 class="no-dogs-message">No adoption applications found in the database.</h2>
         </div>
         <div class="empty-container-bottom-account">
             <button class="btn" [routerLink]="'/adoptable-dogs'">ADOPT NOW!</button>
@@ -46,7 +46,7 @@
             <div class="detaildogcard-content">
                 <h2 class="gen-text-body-dogcard-head"><b>{{adoption.dog?.name}}</b></h2>
                 <p class="gen-text-body-dogcard">AGE: {{adoption.dog?.age}} years old</p>
-                <p class="gen-text-body-dogcard">GENDER: {{adoption.dog?.age}}</p>
+                <p class="gen-text-body-dogcard">GENDER: {{adoption.dog?.gender}}</p>
                 <p class="gen-text-body-dogcard">DATE SUBMITTED: {{adoption.datetime | date: 'mediumDate'}}</p>
                 <p class="gen-text-body-dogcard">TIME SUBMITTED: {{adoption.datetime | date: 'shortTime'}}</p>
                 <p class="gen-text-body-dogcard">STATUS: {{adoption.status}}</p>

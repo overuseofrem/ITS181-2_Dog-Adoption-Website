@@ -3,13 +3,11 @@ import { Router, RouterModule } from '@angular/router';
 import { User } from '../../../model/user.model';
 import { AuthService } from '../../../service/auth.service';
 import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-admin-add',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, RouterModule, FormsModule],
+  imports: [RouterModule, FormsModule],
   templateUrl: './admin-add.component.html',
   styleUrl: './admin-add.component.css'
 })

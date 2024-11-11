@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';  // For two-way binding with [(ngModel)]
+import { FormsModule } from '@angular/forms';
 import { User } from '../../../model/user.model';
 import { AuthService } from '../../../service/auth.service';
 

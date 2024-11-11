@@ -3,14 +3,13 @@ import { FormsModule} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Dog } from '../../../model/dog.model';
 import { DogService } from '../../../service/dog.service';
-import { CommonModule } from '@angular/common';
 import { AuthService } from '../../../service/auth.service';
 import { User } from '../../../model/user.model';
 
 @Component({
   selector: 'app-admin-dog-edit',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule],
   templateUrl: './admin-dog-edit.component.html',
   styleUrl: './admin-dog-edit.component.css'
 })

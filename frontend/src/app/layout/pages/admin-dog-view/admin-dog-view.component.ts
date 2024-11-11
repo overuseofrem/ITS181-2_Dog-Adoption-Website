@@ -1,5 +1,4 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Dog } from '../../../model/dog.model';
@@ -10,7 +9,7 @@ import { AuthService } from '../../../service/auth.service';
 @Component({
   selector: 'app-admin-dog-view',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, RouterModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './admin-dog-view.component.html',
   styleUrl: './admin-dog-view.component.css'
 })
@@ -25,7 +24,6 @@ export class AdminDogViewComponent {
   private router = inject(Router);
 
   ngOnInit(): void {
-    // session
     this.authService.checkAdminSession("ADMIN").subscribe(
       user => {
         if (user && user.name) {

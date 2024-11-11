@@ -108,7 +108,6 @@
     flex-direction: row;
     padding: 0;
     width: 100% !important; 
-    margin-bottom: 3rem !important;
 }
 
 .imgdogcard-content {
@@ -192,4 +191,13 @@
     color: var(--accent-color);
     transition: 0.1s ease-out;
     border-color: var(--accent-color);
+}
+
+.no-dogs-message {
+    text-align: center;
+    color: gray;
+    font-style: italic;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 1rem;
 }

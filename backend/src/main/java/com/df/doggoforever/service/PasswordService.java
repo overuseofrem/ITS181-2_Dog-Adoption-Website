@@ -1,6 +1,5 @@
 package com.df.doggoforever.service;
 
-import lombok.RequiredArgsConstructor;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
